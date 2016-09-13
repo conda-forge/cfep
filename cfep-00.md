@@ -5,7 +5,7 @@
 <tr><td> Author(s) </td><td> Full Name &lt;full.name@gmail.com&gt;</td></tr>
 <tr><td> Created </td><td> Aug 30, 2016</td></tr>
 <tr><td> Updated </td><td> Aug 30, 2016</td></tr>
-<tr><td> Discussion </td><td> link to the issue where the CFEP is being discussed, NA is circulated initially </td></tr>
+<tr><td> Discussion </td><td> link to the PR where the CFEP is being discussed, NA is circulated initially </td></tr>
 <tr><td> Implementation </td><td> link to the PR for the implementation, NA if not availble </td></tr>
 </table>
 
@@ -17,15 +17,18 @@ A short description of the change being addressed.
 
 Other relevant sections of the proposal.  Common sections include:
 
-    * Specification
-    * Motivation
-    * Rationale
-    * Backwards Compatibility
-    * Alternatives
-    * Sample Implementation
-    * FAQ
-    * Reference
+    * Specification -- The technical details of the proposed change.
+    * Motivation -- Why the proposed change is needed.
+    * Rationale -- Why particular decisions were made in the proposal.
+    * Backwards Compatibility -- Will the proposed change break existing
+      packages or workflows.
+    * Alternatives -- Any alternatives considered during the design.
+    * Sample Implementation -- Links to prototype or a sample implementation of
+      the proposed change.
+    * FAQ -- Frequently asked questions (and answers to them).
+    * Resolution -- A short summary of the decision made by the community.
+    * Reference -- Any references used in the design of the CFEP.
 
 ## Copyright
 
-It is suggested that all CFEPs be explicitly placed in the public domain although other open publication licenses are also acceptable.
+All CFEPs are explicitly [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/).

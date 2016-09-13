@@ -35,14 +35,12 @@ repository. Their revision history is a historic record of the proposed change.
 The CFEP process begins with an idea for a change in how the conda-forge
 organization operates.  These change can be technical or address the
 social aspects of the organization.  Small changes often do not need a CFEP and
-can be discussed on the
-[conda-forge gitter channel](https://gitter.im/conda-forge/conda-forge.github.io),
-the [conda-forge mailing list](https://groups.google.com/forum/#!forum/conda-forge),
-or as part of a conda-forge meeting.  More involved or controversial changes
+can be discussed on the [conda-forge mailing list](https://groups.google.com/forum/#!forum/conda-forge),
+or as part of a [conda-forge meeting](https://conda-forge.hackpad.com/conda-forge-meetings-2YkV96cvxPG).  More involved or controversial changes
 should be submitted as CFEPs.  When it is unclear if a change requires a CFEP,
 ask in one of the above forums and the conda-forge core team should be able to
 provide guidance.  The conda-forge core team may solicit CFEPs on topics of
-concern to the community.  CFEPs should focus on a single issue, broad changes
+concern to the community.  CFEPs should focus on a single issue; broad changes
 should be split into multiple well-focused CFEPs.
 
 Each CFEP must have a champion or champions -- someone who will write the
@@ -50,17 +48,15 @@ CFEP in the format described below, submit the CFEP as a pull request,
 follow the discussion on the pull request, and answer questions.  Before
 beginning to write a proposal, it is best to ascertain if the idea is CFEP-able.
 A discussion on the
-[conda-forge gitter channel](https://gitter.im/conda-forge/conda-forge.github.io),
-the [conda-forge mailing list](https://groups.google.com/forum/#!forum/conda-forge),
-or as part of a conda-forge meeting is the best way to go about this.
+[conda-forge mailing list](https://groups.google.com/forum/#!forum/conda-forge),
+or as part of a [conda-forge meeting](https://conda-forge.hackpad.com/conda-forge-meetings-2YkV96cvxPG)
+is the best way to go about this.
 
 Once the champion has asked the conda-forge community as to whether an idea
 has any chance of acceptance, a draft CFEP should be written following the
 template in [CFEP-00](cfep-00.md) and described below.
 
-The CFEP draft may be circulated to interested parties for informal comment and
-review prior to a formal submission. During this time, the Status of the CFEP
-should be set to Draft.
+While working on the CFEP prior to submission please set its Status to Draft.
 
 ## Submission
 
@@ -81,9 +77,9 @@ proposal as recommended by the community.
 
 All CFEPs will be resolved as either *Rejected*, *Accepted* or *Deferred*
 depending on the consensus of the community. Once the community has reached a
-consensus, the CFEP champion should update the Status of proposal and add a
-link to the discussion to the table.  Regardless of the resolution, the pull
-request should be merged once these tasks have been done.
+consensus, a conda-forge maintainer will update the Status of proposal, add a
+link to the discussion in the table and, regardless of the resolution, merge
+the pull request with these updates.
 
 ## CFEP Maintenance
 
@@ -91,7 +87,8 @@ For *Rejected* CFEPs, no modifications are made after the pull request is merged
 *Accepted* CFEPs should be updated with a link to the pull request(s) of the
 implementation and the status changed to *Implemented* when the proposed
 changes have been implemented.  *Deferred* CFEPs can be re-submitted in a new
-pull request after an appropriate amount of time.
+pull request if the circumstances that justified deferring instead of
+accepting or rejecting have changed.
 
 # CFEP Content
 
@@ -120,6 +117,7 @@ included if appropriate for the proposal include.
     * Sample Implementation -- Links to prototype or a sample implementation of
       the proposed change.
     * FAQ -- Frequently asked questions (and answers to them).
+    * Resolution -- A short summary of the decision made by the community.
     * Reference -- Any references used in the design of the CFEP.
 
 A final **Copyright** section is also required.
@@ -127,9 +125,9 @@ A final **Copyright** section is also required.
 ## References
 
 Much of this document was adapted from
-[PEP 1 -- PEP Purpose and Guidelines](https://www.python.org/dev/peps/pep-0001/)which has been placed in the public domain.
+[PEP 1 -- PEP Purpose and Guidelines](https://www.python.org/dev/peps/pep-0001/) which has been placed in the public domain.
 The [IPEPs: IPython Enhancement Proposals](https://github.com/ipython/ipython/wiki/IPEPs:-IPython-Enhancement-Proposals) was also referenced for inspiration.
 
 ## Copyright
 
-This document has been placed in the public domain.
+This document is [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/).

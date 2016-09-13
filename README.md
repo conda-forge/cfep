@@ -1,4 +1,4 @@
-conda-forge is a community led collection of recipes, build infrastructure
+conda-forge is a community-led collection of recipes, build infrastructure
 and packages for the conda package manager.  As the conda-forge community grows,
 changes will be needed to adapt how the project operates both from a
 technical standpoint as well as to address social topics such as governance and
