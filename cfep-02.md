@@ -6,7 +6,7 @@
 <tr><td> Created </td><td> Nov 8, 2016</td></tr>
 <tr><td> Updated </td><td> Nov 8, 2016</td></tr>
 <tr><td> Discussion </td><td> https://github.com/conda-forge/conda-forge-enhancement-proposals/pull/6 </td></tr>
-<tr><td> Implementation </td><td> NA </td></tr>
+<tr><td> Implementation </td><td> (listed below) </td></tr>
 </table>
 
 ## Abstract
@@ -15,16 +15,16 @@ Upgrade the default Travis image to `xcode6.4`.
 
 ## Implementation
 
-This is a one-line change to `.travis.yml`:
-
-```
-osx_image: xcode6.4
-```
-
 *   Adapt `conda smithy` so that it applies that edit on rerender.
+    [One-liner change here](https://github.com/conda-forge/conda-smithy/blob/b1d1730c4b8c8dc849464b1b39569b0e61ec3130/conda_smithy/templates/travis.yml.tmpl#L12)
 *   Apply the change in the `staged-recipes` master branch.
+    [One-liner change here](https://github.com/conda-forge/staged-recipes/blob/3ce42e083cebe5f39eea82d069d5a94cb7719218/.travis.yml#L5)
+
+    [PR](https://github.com/conda-forge/staged-recipes/pull/1094)
 *   Rebuild all packages with this? (TBD? Opinions?)
-*   Suggest that all packages include the `toolchain` so that
+
+    Likely not necessary given [C++ ABI Compatibility][cxxabi].
+*   Suggest that all new packages include the `toolchain` so that
     the macOS 10.9 deployment target can be set.
 
 ## Rationale
@@ -33,13 +33,18 @@ osx_image: xcode6.4
     and will cease to be [supported/provided by Travis][travis],
     so this change will have to happen at some point anyway.
 
-*   We won't be able to compile [clang
-    3.8/3.9](https://github.com/conda-forge/staged-recipes/pull/1481) without
-    this change.
+    It will go away on January 21, 2017 according to the stated
+    plan in the linked comment.
+
+*   Multiple packages need this to move forward:
+
+    *   [Apache Arrow](https://github.com/conda-forge/conda-forge.github.io/issues/249#issuecomment-254331475)
+    *   [libdynd](https://github.com/conda-forge/staged-recipes/pull/1051#issuecomment-233279062)
+    *   [clang 3.8/3.9](https://github.com/conda-forge/staged-recipes/pull/1481)
 
 ## Backward Compatibility
 
-*   The default deployment target for `xcode6.4` is macOS 10.11.
+*   The default deployment target for `xcode6.4` is macOS 10.10.
     It would need to be forced to 10.9 (the lowest supported one
     for that image) by hand.
 
@@ -58,9 +63,11 @@ osx_image: xcode6.4
 * [Setting OS X deployment target](
 https://developer.apple.com/library/content/documentation/DeveloperTools/Conceptual/cross_development/Configuring/configuring.html
 )
+* [Apple C++ ABI Compatibility][cxxabi]
 
 [impl]: https://github.com/conda-forge/conda-forge.github.io/issues/249#issuecomment-256207392
 [travis]: https://github.com/travis-ci/travis-ci/issues/6765#issuecomment-256703076
+[cxxabi]: https://developer.apple.com/library/content/documentation/DeveloperTools/Conceptual/CppRuntimeEnv/Articles/CPPROverview.html
 
 ## Copyright
 
