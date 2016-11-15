@@ -5,7 +5,7 @@
 <tr><td> Author(s) </td><td> Andreas Kloeckner &lt;inform@tiker.net&gt;</td></tr>
 <tr><td> Created </td><td> Nov 8, 2016</td></tr>
 <tr><td> Updated </td><td> Nov 8, 2016</td></tr>
-<tr><td> Discussion </td><td> TBD </td></tr>
+<tr><td> Discussion </td><td> https://github.com/conda-forge/conda-forge-enhancement-proposals/pull/6 </td></tr>
 <tr><td> Implementation </td><td> NA </td></tr>
 </table>
 
