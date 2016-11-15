@@ -50,6 +50,14 @@ osx_image: xcode6.4
 
 * [@jakirkham on implications][impl]
 * [Travis image support policy][travis]
+* [Travis CI changes default to Mac OS 10.11 XCode 7.3]( https://blog.travis-ci.com/2016-10-04-osx-73-default-image-live/ )
+* [Travis CI image restructuring]( https://blog.travis-ci.com/2016-09-15-new-default-osx-image-coming/ )
+* [Currently available Travis CI OS X images]( https://docs.travis-ci.com/user/osx-ci-environment/#OS-X-Version )
+* [Details on Mac OS 10.9 XCode 6.1]( https://docs.travis-ci.com/user/osx-ci-environment/#Xcode-6.1 ) supports 10.9 and 10.10
+* [Details on Mac OS 10.10 XCode 6.4]( https://docs.travis-ci.com/user/osx-ci-environment/#Xcode-6.4 ) supports 10.9 and 10.10
+* [Setting OS X deployment target](
+https://developer.apple.com/library/content/documentation/DeveloperTools/Conceptual/cross_development/Configuring/configuring.html
+)
 
 [impl]: https://github.com/conda-forge/conda-forge.github.io/issues/249#issuecomment-256207392
 [travis]: https://github.com/travis-ci/travis-ci/issues/6765#issuecomment-256703076
