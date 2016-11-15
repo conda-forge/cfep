@@ -27,6 +27,11 @@ Upgrade the default Travis image to `xcode6.4`.
 *   Suggest that all new packages include the `toolchain` so that
     the macOS 10.9 deployment target can be set.
 
+    Ideally, the correct setting of the deployment target would be verified by
+    CI, but the implementation of such a measure, while
+    [technically possible](http://stackoverflow.com/a/17148833),
+    is not part of this proposal.
+
 ## Rationale
 
 *   The current default image (`beta-xcode6.1`) is deprecated
@@ -34,7 +39,11 @@ Upgrade the default Travis image to `xcode6.4`.
     so this change will have to happen at some point anyway.
 
     It will go away on January 21, 2017 according to the stated
-    plan in the linked comment.
+    plan in the linked comment. At that point, all packages
+    specifying the previous image (`beta-xcode6.1`) will
+    implicitly be bumped to Travis's default image, which will result
+    in packages that do not meet conda-forge's promise of OS compatibility
+    back to 10.9.
 
 *   Multiple packages need this to move forward:
 
@@ -48,8 +57,8 @@ Upgrade the default Travis image to `xcode6.4`.
     It would need to be forced to 10.9 (the lowest supported one
     for that image) by hand.
 
-*   Even with this change, this would implicitly drop support for
-    macOS 10.7 and 10.8.
+*   The proposed change will not drop support for any previously
+    supported OS versions.
 
 ## References
 
