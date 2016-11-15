@@ -15,13 +15,13 @@ Upgrade the default Travis image to `xcode6.4`.
 
 ## Implementation
 
-This is a one-line change to `.travis.yml`
+This is a one-line change to `.travis.yml`:
 
 ```
 osx_image: xcode6.4
 ```
 
-*   Adapt `conda smithy` so that it applies that edit on rerender
+*   Adapt `conda smithy` so that it applies that edit on rerender.
 *   Apply the change in the `staged-recipes` master branch.
 *   Rebuild all packages with this? (TBD? Opinions?)
 *   Suggest that all packages include the `toolchain` so that
@@ -48,7 +48,11 @@ osx_image: xcode6.4
 
 ## References
 
-*   [@jakirkham on implications](https://github.com/conda-forge/conda-forge.github.io/issues/249#issuecomment-256207392)
+* [@jakirkham on implications][impl]
+* [Travis image support policy][travis]
+
+[impl](https://github.com/conda-forge/conda-forge.github.io/issues/249#issuecomment-256207392)
+[travis][https://github.com/travis-ci/travis-ci/issues/6765#issuecomment-256703076]
 
 ## Copyright
 
