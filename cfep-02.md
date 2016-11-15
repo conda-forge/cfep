@@ -30,7 +30,7 @@ osx_image: xcode6.4
 ## Rationale
 
 *   The current default image (`beta-xcode6.1`) is deprecated
-    and will cease to be supported/provided by Travis [@jakirkham: citation needed],
+    and will cease to be [supported/provided by Travis][travis],
     so this change will have to happen at some point anyway.
 
 *   We won't be able to compile [clang
