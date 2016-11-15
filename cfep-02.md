@@ -51,8 +51,8 @@ osx_image: xcode6.4
 * [@jakirkham on implications][impl]
 * [Travis image support policy][travis]
 
-[impl](https://github.com/conda-forge/conda-forge.github.io/issues/249#issuecomment-256207392)
-[travis][https://github.com/travis-ci/travis-ci/issues/6765#issuecomment-256703076]
+[impl]: https://github.com/conda-forge/conda-forge.github.io/issues/249#issuecomment-256207392
+[travis]: https://github.com/travis-ci/travis-ci/issues/6765#issuecomment-256703076
 
 ## Copyright
 
