@@ -35,11 +35,11 @@ Upgrade the default Travis image to `xcode6.4`.
 ## Rationale
 
 *   The current default image (`beta-xcode6.1`) is deprecated
-    and will cease to be [supported/provided by Travis][travis],
+    and will cease to be [supported/provided by Travis][travis-retire],
     so this change will have to happen at some point anyway.
 
     It will go away on January 21, 2017 according to the stated
-    plan in the linked comment. At that point, all packages
+    plan in the linked post. At that point, all packages
     specifying the previous image (`beta-xcode6.1`) will
     implicitly be bumped to Travis's default image, which will result
     in packages that do not meet conda-forge's promise of OS compatibility
@@ -73,10 +73,12 @@ Upgrade the default Travis image to `xcode6.4`.
 https://developer.apple.com/library/content/documentation/DeveloperTools/Conceptual/cross_development/Configuring/configuring.html
 )
 * [Apple C++ ABI Compatibility][cxxabi]
+* [Travis CI: Retiring some OS/X images][travis-retire]
 
 [impl]: https://github.com/conda-forge/conda-forge.github.io/issues/249#issuecomment-256207392
 [travis]: https://github.com/travis-ci/travis-ci/issues/6765#issuecomment-256703076
 [cxxabi]: https://developer.apple.com/library/content/documentation/DeveloperTools/Conceptual/CppRuntimeEnv/Articles/CPPROverview.html
+[travis-retire]: https://blog.travis-ci.com/2016-11-17-retiring-some-osx-images/
 
 ## Copyright
 
