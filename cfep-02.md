@@ -48,8 +48,11 @@ Upgrade the default Travis image to `xcode6.4`.
 *   Multiple packages need this to move forward:
 
     *   [Apache Arrow](https://github.com/conda-forge/conda-forge.github.io/issues/249#issuecomment-254331475)
+        (Issues related to `rpath`/`@loader_path`)
     *   [libdynd](https://github.com/conda-forge/staged-recipes/pull/1051#issuecomment-233279062)
+        (Insufficient C++14 support in the current image)
     *   [clang 3.8/3.9](https://github.com/conda-forge/staged-recipes/pull/1481)
+        (Clang compilation crashes with the current image)
 
 ## Backward Compatibility
 
