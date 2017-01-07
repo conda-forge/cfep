@@ -24,13 +24,13 @@ Upgrade the default Travis image to `xcode6.4`.
 *   Rebuild all packages with this? (TBD? Opinions?)
 
     Likely not necessary given [C++ ABI Compatibility][cxxabi].
-*   Suggest that all new packages include the `toolchain` so that
-    the macOS 10.9 deployment target can be set.
+*   [`conda-forge-build-setup` will be modified](https://github.com/conda-forge/conda-forge-build-setup-feedstock/pull/46)
+    to automatically set the deployment target on OS/X builds.
 
-    Ideally, the correct setting of the deployment target would be verified by
-    CI, but the implementation of such a measure, while
-    [technically possible](http://stackoverflow.com/a/17148833),
-    is not part of this proposal.
+    As implemented in the linked PR, this requires `conda-build` version 2,
+    allowing the switch to that version and this change to be
+    implemented as part of the same process.
+    ([More discussion](https://github.com/conda-forge/conda-forge-enhancement-proposals/pull/6#discussion_r94984631))
 
 ## Rationale
 
