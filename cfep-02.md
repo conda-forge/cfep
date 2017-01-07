@@ -1,10 +1,10 @@
 
 <table>
 <tr><td> Title </td><td> Upgrade default macOS Travis image to `xcode6.4` </td>
-<tr><td> Status </td><td> Draft </td></tr>
+<tr><td> Status </td><td> Accepted </td></tr>
 <tr><td> Author(s) </td><td> Andreas Kloeckner &lt;inform@tiker.net&gt;</td></tr>
 <tr><td> Created </td><td> Nov 8, 2016</td></tr>
-<tr><td> Updated </td><td> Nov 8, 2016</td></tr>
+<tr><td> Updated </td><td> Jan 8, 2016</td></tr>
 <tr><td> Discussion </td><td> https://github.com/conda-forge/conda-forge-enhancement-proposals/pull/6 </td></tr>
 <tr><td> Implementation </td><td> (listed below) </td></tr>
 </table>
