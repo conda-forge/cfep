@@ -308,7 +308,9 @@ pose a systemic risk.
  'zlib'}
 ```
 ##### 3 (Systemic Risk)
-TBD
+```python
+{'libgdal',
+ 'opencv'}
 
 ### Automation
 Some of this workflow could be automated via either webservices or another bot.
