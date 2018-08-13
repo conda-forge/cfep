@@ -71,8 +71,10 @@ As part of this we are introducing a few system keys into conda-forge-pinning
 
 ### Phase 2
 
-*   Create a migrator using the conda-forge bot infrastructure on regro to carry out performing the 
-    rebuild migrations.
+*   Create a migrator and subgraph using the conda-forge bot infrastructure on regro to carry out performing the 
+    rebuild migrations. The subgraph will include `python` 3.7, 
+    `openblas` 0.3.2, `r-base` 3.5.1, and all build inheritors from the 
+    compiler stubs.
 
     This migrator will use the conda-smity and conda-forge-pinnings from Phase 1
 
