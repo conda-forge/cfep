@@ -67,8 +67,6 @@ As part of this we are introducing a few system keys into conda-forge-pinning
 
     [PR: conda-forge-pinning-feedstock#92](https://github.com/conda-forge/conda-forge-pinning-feedstock/pull/92)
 
-    This cannot be merged to master and released until Phase 3
-
 ### Phase 2
 
 *   Create a migrator and subgraph using the conda-forge bot infrastructure on regro to carry out performing the 
@@ -76,7 +74,7 @@ As part of this we are introducing a few system keys into conda-forge-pinning
     `openblas` 0.3.2, `r-base` 3.5.1, and all build inheritors from the 
     compiler stubs.
 
-    This migrator will use the conda-smity and conda-forge-pinnings from Phase 1
+    This migrator will use the conda-smity and conda-forge-pinnings merged during Phase 1
 
 *   Run the migrator against the stack.  This will take several months to get to completion.
     `conda-forge/core` will monitor the progress of the migration and vote on when to move to phase 3
