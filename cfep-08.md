@@ -42,7 +42,7 @@ packages
 1. Require review approval of at least one person to merge
 
 ### Criteria for "Too Big to Fail"
-Any package meeting at least of the following criteria would be considered 
+Any package meeting at least one of the following criteria would be considered 
 TBTF:
 1. Runtime dependency of `conda`
     ```python
