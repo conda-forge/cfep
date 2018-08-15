@@ -12,9 +12,9 @@
 ## Abstract
 There are core packages which are "too big to fail" (TBTF). If these packages are built incorrectly they
 will cause systemic problems across the ecosystem. For example, we recently had a near-miss with the requests
-feedstock being updated to be `noarch: python` which caused [some serious issues]
-(https://github.com/conda-forge/requests-feedstock/issues/23) that, fortunately, did not have
-much of an impact *this* time.
+feedstock being updated to be `noarch: python` which caused 
+[some serious issues](https://github.com/conda-forge/requests-feedstock/issues/23) that, 
+fortunately, did not have much of an impact *this* time.
 
 As such, we propose that we need to have tighter control of these recipes. In practice, this 
 looks like at least:
@@ -22,8 +22,8 @@ looks like at least:
 1. Requiring review approval to merge
 
 ## Motivation
-The move to noarch for many python projects [almost crippled our conda package]
-(https://github.com/conda-forge/requests-feedstock/issues/23).
+The move to noarch for many python projects 
+[almost crippled our conda package](https://github.com/conda-forge/requests-feedstock/issues/23).
 Previous versions of `conda` would not work well with `noarch` runtime 
 dependencies. 
 This could have been particularly damaging, as a corrupted conda
