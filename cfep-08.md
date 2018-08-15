@@ -10,28 +10,28 @@
 </table>
 
 ## Abstract
+There are core packages which are "too big to fail" (TBTF). If these packages are built incorrectly they
+will cause systemic problems across the ecosystem. For example, we recently had a near-miss with the requests
+feedstock being updated to be `noarch: python` which caused [some serious issues]
+(https://github.com/conda-forge/requests-feedstock/issues/23) that, fortunately, did not have
+much of an impact *this* time.
 
-There are core packages which are "too big to fail" (TBTF). 
-These are packages, if they are built incorrectly will cause systemic problems across the ecosystem. 
-For example the recent move of some recipes to `noarch` could have caused problems with `conda` itself. 
-
-We need to have tighter control of these recipes.
-
-We need to (at least):
-1. Have all (or at least some) of core as maintainers of these packages
-1. Require review approval to merge
-
+As such, we propose that we need to have tighter control of these recipes. In practice, this 
+looks like at least:
+1. Having all (or at least some) of core as maintainers of these packages
+1. Requiring review approval to merge
 
 ## Motivation
-The move to noarch for many python projects almost crippled our conda package.
+The move to noarch for many python projects [almost crippled our conda package]
+(https://github.com/conda-forge/requests-feedstock/issues/23).
 Previous versions of `conda` would not work well with `noarch` runtime 
 dependencies. 
 This could have been particularly damaging, as a corrupted conda
 would not be able to install the needed updates to get the user out of the 
 corrupted state.
 
-In this case this was a near miss, but one could imagine changes to a 
-different part of the ecosystem doing something similar.
+In this case we had a near miss with `requests` and `conda`, but it is not difficult to 
+imagine changes to a different part of the ecosystem doing something similar.
 
 ## Implementation
 ### Controls for "Too Big to Fail" feedstocks
@@ -43,8 +43,8 @@ packages
 
 ### Criteria for "Too Big to Fail"
 Any package meeting at least one of the following criteria would be considered 
-TBTF:
-1. Runtime dependency of `conda`
+TBTF.
+1. The package is a runtime dependency of `conda`
     ```python
     import networkx as nx
     g = nx.read_gpickle('graph.pkl')
@@ -54,7 +54,7 @@ TBTF:
         # Note that this over counts since it also includes build/host deps
         s.update(nx.ancestors(g, n))
     ```
-2. Has more than 5% of the ecosystem as indirect or direct decedents 
+2. The package has more than 5% of the ecosystem as indirect or direct decedents 
 (as of writing this is 165 recipes)
     ```python
     import networkx as nx
@@ -65,11 +65,12 @@ TBTF:
         if len(nx.descendants(g, n)) > int(len(g) * percent):
             s.add(n)
     ``` 
-3. Has been agreed upon by core that the errors in the feedstock would 
+3. The package has been agreed upon by core that the errors in the feedstock would 
 pose a systemic risk.
 
 #### Packages which are "Too Big to Fail"
 ##### 1 (conda runtime dependencies)
+The package is a runtime dependency of `conda`. Those packages are:
 ```python
 {'asn1crypto',
  'atomicwrites',
@@ -140,7 +141,9 @@ pose a systemic risk.
  'zlib'}
  ```
  ##### 2 (5% of the ecosystem)
- ```python
+ The package has more than 5% of the ecosystem as indirect or direct decedents.
+ As of writing there are 165 packages meeting this criteria:
+  ```python
 {'asn1crypto',
  'atomicwrites',
  'attrs',
@@ -308,16 +311,19 @@ pose a systemic risk.
  'zlib'}
 ```
 ##### 3 (Systemic Risk)
+The package has been agreed upon by core that the errors in the feedstock would 
+pose a systemic risk. These packages currently include:
 ```python
 {'libgdal',
  'opencv'}
+```
 
 ### Automation
-Some of this workflow could be automated via either webservices or another bot.
-The main two parts would be:
+Some of this workflow could be automated with a webservice or a bot by:
 1. adding core to the maintainers
 1. setting github to require reviews for PRs
 
 ## Copyright
 
 All CFEPs are explicitly [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/).
+
