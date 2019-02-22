@@ -39,7 +39,7 @@ are not rebuilt with the new pinnings themselves.
     1. The node depends on the changed pinnings.
     2. It has no dependencies that depend on the new pinnings and have not been migrated.
     3. It is not currently being migrated by an earlier migration. Per @scopatz, this state is stored in `libcflib` with a REST API.
-4. Process 3 continues until we determine that the migration is sufficiently complete and the change is merged into the global pinnings file. 
+4. Process 3 continues until we determine that the migration is sufficiently complete and the change is merged into the global pinnings file. (See below for how a migration is declared complete.)
 
 ### Implementation Details:
 - We would need to associate a version independent of git hash with each migration that orders them in time and thus orders the pinning files in time. A pinnings file could be versioned simply with a comment inserted at the top of the YAML containing the timestamp that the change was merged or something. We could use seconds from the epoch!
@@ -48,6 +48,7 @@ are not rebuilt with the new pinnings themselves.
 - Smithy should use the most recent pinnings file when building the `.ci_support` files. This makes sure that rerendering the feedstock always produces the correct pinnings.
 - The migration bot would write the new pinnings file as the local one, rerender the repo and then issue the PR.
 - Migration changes have to be merged into the global pinnings file in the order they were made.
+- A migration is declared complete when any packages that have been specified as critical have been migrated and at least some large percentage, specified with the migration, of the effected packages have been migrated.
 
 ## Rationale
 
