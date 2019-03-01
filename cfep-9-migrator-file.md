@@ -4,7 +4,7 @@ This is a general sketch of what I'd like migrators to be able to achieve.
 Effectively this means we can decompose all of our migrations into a small set of primitives 
 that we can apply to generate a resulting desired target.
 
-# @mariusvniekerk's propsal
+----
 
 Given a feedstock with the following pinnings
 
@@ -64,7 +64,10 @@ someflag:
 </tr>
 </table>
 
-These are the most common version migrations and encompass things like moving the pinnings for openssl etc
+These are the most common version migrations and encompass things like moving the pinnings for openssl etc.
+
+Note that the version of `b` was NOT decreased.  This is intentional as we don't wish to downgrade accidentally.  In practice many migrators could be in flight and may affect the same version.  In this case the higher version should always 
+win.  If we want to downgrade there is a mechanism but it is purposefully clunky and bad.
 
 ## 2. Matrix Version Addition changes
 
@@ -76,8 +79,8 @@ These are the most common version migrations and encompass things like moving th
 # Existing pins
 a:
   - 1.5
-b:
-  - 1.2
+python:
+  - 3.6
 someflag:
   - disabled
 ```
@@ -88,9 +91,9 @@ someflag:
 ```yaml
 # migrator
 __migrator: kind: version
-b:
-  - 1.2
-  - 2.0
+python:
+  - 3.6
+  - 3.8a1
 ```
 </td>
 <td> -> </td>
@@ -101,8 +104,8 @@ b:
 a:
   - 1.56
 b:
-  - 1.2
-  - 2.0
+  - 3.6
+  - 3.8a1
 someflag:
   - disabled
 ```
@@ -202,5 +205,5 @@ numpy:
 </tr>
 </table>
 
-
+Key removals followed by additions are a viable way to perform a migration to a lower version.  We have never done this really.
 
