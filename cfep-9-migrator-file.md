@@ -54,7 +54,7 @@ b:
 ```yaml
 # resulting pins
 a:
-  - 1.56
+  - 1.6
 b:
   - 1.2
 someflag:
