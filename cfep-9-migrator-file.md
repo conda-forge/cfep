@@ -102,7 +102,7 @@ python:
 ```yaml
 # resulting pins
 a:
-  - 1.56
+  - 1.5
 b:
   - 3.6
   - 3.8a1
