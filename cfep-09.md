@@ -27,7 +27,7 @@ This CFEP is taken from @beckermr's work on [conda-forge.github.io](https://gith
 Currently when we move pinnings we move the pin in the ``conda-forge-pinning-feedstock``.
 Then we start a migration using the ``regro-cf-autotick-bot``.
 This order of operations causes some issues, when new feedstocks
-are created they recieve the new pinnings even if their dependencies
+are created they receive the new pinnings even if their dependencies
 are not rebuilt with the new pinnings themselves.
 
 ## Specification
@@ -253,9 +253,9 @@ This is fully backwards compatible with the current ecosystem.
 
 ## Alternatives
 
-1. Earlier versions of this proposal did not direct version the global pinnings files in a time ordered fashion. Instead they simply always preferred the local pinnings over the global ones. However, this procedure fails in the case of a packahe adding a new dependence with a pin and it having an outdated local pinnings file. By having a version stored in the file, `conda-smithy` can tell which version is more recent.
+1. Earlier versions of this proposal did not direct version the global pinnings files in a time ordered fashion. Instead they simply always preferred the local pinnings over the global ones. However, this procedure fails in the case of a package adding a new dependence with a pin and it having an outdated local pinnings file. By having a version stored in the file, `conda-smithy` can tell which version is more recent.
 
-2. An earlier version of this propsal was designed around a migration being a YAML snippet. However, `conda_build_config.yaml` files can have conda-build selectors in them (e.g., `# [osx]`). This conda-build feature makes it pretty hard to use a YAML snippet as a patch on th global pinnings file. Using a direct copy of the proposed new global pinnings file is simpler. This procedure also allows us to migrate almost anything in the file. 
+2. An earlier version of this proposal was designed around a migration being a YAML snippet. However, `conda_build_config.yaml` files can have conda-build selectors in them (e.g., `# [osx]`). This conda-build feature makes it pretty hard to use a YAML snippet as a patch on th global pinnings file. Using a direct copy of the proposed new global pinnings file is simpler. This procedure also allows us to migrate almost anything in the file. 
 
 3. Some suggestions have been centered around directly looking at the package versions in the pinnings file to determine which one is newer. This procedure has some flaws. First, it does not allow us to downgrade pinnings if needed. It is ambiguous in the case that we migrate more than one package where one version goes up and the other goes down. Finally, it does not cover changes to things like selectors or zip keys which don't have version associated with them. 
 
