@@ -21,7 +21,7 @@ to calculate which packages need to be rebuilt and start issuing
 PRs with the new pinning as a local pinning file to the feedstocks
 in topo order.
 
-This CFEP is taken from @beckermr's work on [conda-forge.github.io](https://github.com/conda-forge/conda-forge.github.io/issues/712).
+This CFEP is taken from @beckermr's work on [conda-forge.github.io](https://github.com/conda-forge/conda-forge.github.io/issues/712) and @@mariusvniekerk's work in [conda-smithy](https://github.com/conda-forge/conda-forge.github.io/issues/712).
 
 ## Motivation
 Currently when we move pinnings we move the pin in the ``conda-forge-pinning-feedstock``.
@@ -33,43 +33,223 @@ are not rebuilt with the new pinnings themselves.
 ## Specification
 
 ### The migrations proceed as follows:
-1. We make a PR on the `migrations` repo with a change to the global pinnings file, generating a new version. 
-2. Once the change is merged, the bot picks it up and starts going through the graph in topo order. 
+1. We make a PR into the ``migrations`` folder in the ``conda-forge-pinning-feedstock`` with a new yaml file representing the migration
+2. Once the change is merged, the bot picks it up, builds a migrator object and begins the migration process
 3. A migration PR is issued for a node only if 
     1. The node depends on the changed pinnings.
     2. It has no dependencies that depend on the new pinnings and have not been migrated.
-    3. It is not currently being migrated by an earlier migration. Per @scopatz, this state is stored in `libcflib` with a REST API.
-4. Process 3 continues until we determine that the migration is sufficiently complete and the change is merged into the global pinnings file. (See below for how a migration is declared complete.)
+4. Process 3 continues until we determine that the migration is sufficiently complete and the change is applied to the global pinning file via a PR.
 
 ### Implementation Details:
-- We would need to associate a version independent of git hash with each migration that orders them in time and thus orders the pinning files in time. A pinnings file could be versioned simply with a comment inserted at the top of the YAML containing the timestamp that the change was merged or something. We could use seconds from the epoch!
-- For a given migration, we only use the changes up to and including the commit that has the relevant pinning updates, even if further updates are merged for future migrations. This forces a single global pinning file to be used for a given subgraph that is being migrated. This seems required for consistency.
-- We allow for a local pinnings file to be present in each feedstock that would override the global pinnings if the version is later. In other words, the more recent pinnings file is always preferred by smithy. 
-- Smithy should use the most recent pinnings file when building the `.ci_support` files. This makes sure that rerendering the feedstock always produces the correct pinnings.
-- The migration bot would write the new pinnings file as the local one, rerender the repo and then issue the PR.
-- Migration changes have to be merged into the global pinnings file in the order they were made.
-- A migration is declared complete when any packages that have been specified as critical have been migrated and at least some large percentage, specified with the migration, of the effected packages have been migrated.
+Given a feedstock with the following pinnings
+
+```yaml
+# Existing pins
+a:
+  - 1.5
+b:
+  - 1.2
+someflag:
+  - disabled
+```
+
+There are four classes of pinning we can do in general.
+
+#### 1. Simple Additive Version Migrations
+
+<table>
+<tr>
+<td>
+
+```yaml
+# Existing pins
+a:
+  - 1.5
+b:
+  - 1.2
+someflag:
+  - disabled
+```
+</td>
+<td> with </td>
+<td>
+
+```yaml
+# migrator
+__migrator: kind: version
+a:
+  - 1.6
+b:
+  - 1.1
+```
+</td>
+<td> -> </td>
+<td>
+
+```yaml
+# resulting pins
+a:
+  - 1.6
+b:
+  - 1.2
+someflag:
+  - disabled
+```
+</td>
+</tr>
+</table>
+
+These are the most common version migrations and encompass things like moving the pinnings for openssl etc.
+
+Note that the version of `b` was NOT decreased.  This is intentional as we don't wish to downgrade accidentally.  In practice many migrators could be in flight and may affect the same version.  In this case the higher version should always 
+win.  If we want to downgrade there is a mechanism but it is purposefully clunky and bad.
+
+#### 2. Matrix Version Addition changes
+
+<table>
+<tr>
+<td>
+
+```yaml
+# Existing pins
+a:
+  - 1.5
+python:
+  - 3.6
+someflag:
+  - disabled
+```
+</td>
+<td> with </td>
+<td>
+
+```yaml
+# migrator
+__migrator: kind: version
+python:
+  - 3.6
+  - 3.8a1
+```
+</td>
+<td> -> </td>
+<td>
+
+```yaml
+# resulting pins
+a:
+  - 1.5
+b:
+  - 3.6
+  - 3.8a1
+someflag:
+  - disabled
+```
+</td>
+</tr>
+</table>
+
+These are things like the compiler migration and can be thought of as additions to a version.  
+These need substantial care when dealing with things like zip_keys.  But in general it should be
+feasible to perform for many common cases.
+
+This can also be used to do something like add a new python version to the matrix or remove an existing one.
+
+For each sublist we perform the version comparison of all the elements within that list and come to a final result.
+
+#### 3. Name migrations
+
+Names don't sort well and as such are a bit problematic.  However we can impose a new name by 
+stating what the ordering of names are.  This allows us to effectively treat a name migration exactly the the same as
+a version migration because we have an ordering that we can impose on the system.
+
+<table>
+<tr>
+<td>
+
+```yaml
+# Existing pins
+c_compiler:
+  - toolchain_c
+```
+</td>
+<td> with </td>
+<td>
+
+```yaml
+# migrator
+__migrator:
+  kind: version
+  ordering:
+    c_compiler:
+      - toolchain_c
+      - gcc
+c_compiler:
+  - gcc
+```
+</td>
+<td> -> </td>
+<td>
+
+```yaml
+# resulting pins
+c_compiler:
+  - gcc
+```
+</td>
+</tr>
+</table>
+
+
+#### 4. Key removal
+
+Some times we want to perform a migrator where we delete a given value and don't wish to substitute it with a new one.
+A deletion migration is designed purely to remove values
+
+<table>
+<tr>
+<td>
+
+```yaml
+# Existing pins
+ruamel_yaml:
+  - 1.40
+numpy:
+  - 1.14
+```
+</td>
+<td> with </td>
+<td>
+
+```yaml
+# migrator
+__migrator:
+  kind: deletion
+ruamel_yaml:
+  - 1.40
+```
+</td>
+<td> -> </td>
+<td>
+
+```yaml
+# resulting pins
+numpy:
+  1.14
+```
+</td>
+</tr>
+</table>
+
+Key removals followed by additions are a viable way to perform a migration to a lower version.  We have never done this really.
 
 ## Rationale
 
 ### Multiple migrations of the same package:
-We don't want to allow more than one change to the pinnings of a given node at a time, mostly because we cannot guarantee that later pinning migrations can be mixed with earlier ones (e.g., both could touch the same pins for some weird reason). We need to ensure that all nodes in the subgraph that share the same pinned dependence are uniformly migrated from one version to the next. However, we can have more than one migration in flight at a time simply because they could touch different parts of the graph. 
-
-### The rule of preferring the most recent pinnings file covers all of the relevant cases
- - If a feedstock has no local pinnings, then that is fine. 
- - If the file is present, but matches the global pinnings, this is also fine.
- - In the middle of a migration, a feedstock that is being migrated would have a local pinnings file that should be used ahead of the global one. The local version would be ahead of global in this case since the migration bot would add the new pinnings file as the local one.
- - After a migration has ended and the changes from the migration are merged to the global pinnings file, then the global file will always be at the same version as the local one, or at a later version.
-- If some other migration comes through later, it would then overwrite the same local pinnings file with a version that is by definition later than the current global one. 
-- If a feedstock adds a dependency that has a pinned version, then the version that gets used is from the most recent pinnings file between the global one and the local one. 
-- Adding a dependence in the middle of a migration would cause the repo to be detected by the bot and a migration PR would be issued.
-
-Thus we don't need to have conda-smithy cleanup any old local pinnings files, though it could if we want.
+A feedstock can get multiple migration PRs at once, it is up to the feedstock maintainers to choose which PRs to merge in what order.
 
 
 ## Backwards Compatibility
-
-This proposal would require that all changes to the global pinnings file have to be routed through the new `migrations` repo. No human would make a PR on the global pinnings repo and instead that repo would be managed entirely by the bot. 
+This is fully backwards compatible with the current ecosystem.
 
 ## Alternatives
 
