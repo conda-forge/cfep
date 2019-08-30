@@ -245,6 +245,47 @@ numpy:
 </tr>
 </table>
 
+#### 5. Pin downgrade
+
+To downgrade a pin one can use the order parameter
+
+<table>
+<tr>
+<td>
+
+```yaml
+# Existing pins
+jpeg:
+  - 3.0
+```
+</td>
+<td> with </td>
+<td>
+
+```yaml
+# migrator
+__migrator:
+  ordering:
+      jpeg:
+          - 3.0
+          - 2.0
+jpeg:
+    - 2.0
+```
+</td>
+<td> -> </td>
+<td>
+
+```yaml
+# resulting pins
+jpeg:
+  2.0
+```
+</td>
+</tr>
+</table>
+
+
 Key removals followed by additions are a viable way to perform a migration to a lower version.  
 We have never done this really.
 
