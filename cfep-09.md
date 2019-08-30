@@ -13,9 +13,8 @@
 
 This CFEP proposes a change to how our internal pinning system works.
 The new system will comprise of a new repo for proposed migrations.
-To propose a migration a PR will be issued with a new version of
-the global pinning file and some metadata about the migration needed 
-(if any).
+To propose a migration a PR will be issued into the pinning feedstock
+with a yaml expressing the changes to the global pinning file.
 Once the PR is squashed and merged the bot will take the metadata
 to calculate which packages need to be rebuilt and start issuing
 PRs with the new pinning as a local pinning file to the feedstocks
@@ -27,13 +26,13 @@ This CFEP is taken from @beckermr's work on [conda-forge.github.io](https://gith
 Currently when we move pinnings we move the pin in the ``conda-forge-pinning-feedstock``.
 Then we start a migration using the ``regro-cf-autotick-bot``.
 This order of operations causes some issues, when new feedstocks
-are created they receive the new pinnings even if their dependencies
-are not rebuilt with the new pinnings themselves.
+are created, or existing feedstocks rerendered they receive the new pinnings 
+even if their dependencies are not rebuilt with the new pinnings themselves.
 
 ## Specification
 
 ### The migrations proceed as follows:
-1. We make a PR into the ``migrations`` folder in the ``conda-forge-pinning-feedstock`` with a new yaml file representing the migration
+1. We make a PR into the ``migrations`` folder in the ``conda-forge-pinning-feedstock`` with a new yaml file representing the migration.
 2. Once the change is merged, the bot picks it up, builds a migrator object and begins the migration process
 3. A migration PR is issued for a node only if 
     1. The node depends on the changed pinnings.
@@ -101,8 +100,11 @@ someflag:
 
 These are the most common version migrations and encompass things like moving the pinnings for openssl etc.
 
-Note that the version of `b` was NOT decreased.  This is intentional as we don't wish to downgrade accidentally.  In practice many migrators could be in flight and may affect the same version.  In this case the higher version should always 
-win.  If we want to downgrade there is a mechanism but it is purposefully clunky and bad.
+Note that the version of `b` was NOT decreased.  
+This is intentional as we don't wish to downgrade accidentally.  
+In practice many migrators could be in flight and may affect the same version.  
+In this case the higher version should always win.  
+If we want to downgrade there is a mechanism but it is purposefully clunky and bad.
 
 #### 2. Matrix Version Addition changes
 
@@ -149,8 +151,8 @@ someflag:
 </table>
 
 These are things like the compiler migration and can be thought of as additions to a version.  
-These need substantial care when dealing with things like zip_keys.  But in general it should be
-feasible to perform for many common cases.
+These need substantial care when dealing with things like zip_keys.  
+But in general it should be feasible to perform for many common cases.
 
 This can also be used to do something like add a new python version to the matrix or remove an existing one.
 
@@ -158,8 +160,10 @@ For each sublist we perform the version comparison of all the elements within th
 
 #### 3. Name migrations
 
-Names don't sort well and as such are a bit problematic.  However we can impose a new name by 
-stating what the ordering of names are.  This allows us to effectively treat a name migration exactly the the same as
+Names don't sort well and as such are a bit problematic.  
+However we can impose a new name by 
+stating what the ordering of names are.  
+This allows us to effectively treat a name migration exactly the the same as
 a version migration because we have an ordering that we can impose on the system.
 
 <table>
@@ -240,7 +244,8 @@ numpy:
 </tr>
 </table>
 
-Key removals followed by additions are a viable way to perform a migration to a lower version.  We have never done this really.
+Key removals followed by additions are a viable way to perform a migration to a lower version.  
+We have never done this really.
 
 ## Rationale
 
@@ -250,30 +255,6 @@ A feedstock can get multiple migration PRs at once, it is up to the feedstock ma
 
 ## Backwards Compatibility
 This is fully backwards compatible with the current ecosystem.
-
-## Alternatives
-
-1. Earlier versions of this proposal did not direct version the global pinnings files in a time ordered fashion. Instead they simply always preferred the local pinnings over the global ones. However, this procedure fails in the case of a package adding a new dependence with a pin and it having an outdated local pinnings file. By having a version stored in the file, `conda-smithy` can tell which version is more recent.
-
-2. An earlier version of this proposal was designed around a migration being a YAML snippet. However, `conda_build_config.yaml` files can have conda-build selectors in them (e.g., `# [osx]`). This conda-build feature makes it pretty hard to use a YAML snippet as a patch on th global pinnings file. Using a direct copy of the proposed new global pinnings file is simpler. This procedure also allows us to migrate almost anything in the file. 
-
-3. Some suggestions have been centered around directly looking at the package versions in the pinnings file to determine which one is newer. This procedure has some flaws. First, it does not allow us to downgrade pinnings if needed. It is ambiguous in the case that we migrate more than one package where one version goes up and the other goes down. Finally, it does not cover changes to things like selectors or zip keys which don't have a version associated with them. 
-
-## Other sections
-
-Other relevant sections of the proposal.  Common sections include:
-
-    * Specification -- The technical details of the proposed change.
-    * Motivation -- Why the proposed change is needed.
-    * Rationale -- Why particular decisions were made in the proposal.
-    * Backwards Compatibility -- Will the proposed change break existing
-      packages or workflows.
-    * Alternatives -- Any alternatives considered during the design.
-    * Sample Implementation -- Links to prototype or a sample implementation of
-      the proposed change.
-    * FAQ -- Frequently asked questions (and answers to them).
-    * Resolution -- A short summary of the decision made by the community.
-    * Reference -- Any references used in the design of the CFEP.
 
 ## Copyright
 
