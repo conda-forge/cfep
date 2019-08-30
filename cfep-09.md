@@ -14,8 +14,9 @@
 This CFEP proposes a change to how our internal pinning system works.
 The new system will comprise of a new repo for proposed migrations.
 To propose a migration a PR will be issued into the pinning feedstock
-with a yaml expressing the changes to the global pinning file.
-Once the PR is squashed and merged the bot will take the metadata
+with a yaml expressing the changes to the global pinning file into 
+the `migrations` folder.
+Once the PR is squashed and merged the bot will take the yaml
 to calculate which packages need to be rebuilt and start issuing
 PRs with the new pinning as a local pinning file to the feedstocks
 in topo order.
