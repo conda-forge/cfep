@@ -2,7 +2,7 @@
 <table>
 <tr><td> Pinning Proposal System for Automatic Rebuilds</td><td> Pinning Proposal </td>
 <tr><td> Status </td><td> Proposed </td></tr>
-<tr><td> Author(s) </td><td> Christopher J. "CJ" Wright &lt;cjwright4242@gmail.com&gt;; Matthew R. Becker &lt;becker.mr@gmail.com&gt;</td></tr>
+<tr><td> Author(s) </td><td> Christopher J. "CJ" Wright &lt;cjwright4242@gmail.com&gt;; Matthew R. Becker &lt;becker.mr@gmail.com&gt;; Marius van Niekerk &lt;email here&gt;</td></tr>
 <tr><td> Created </td><td> Feb 20, 2019</td></tr>
 <tr><td> Updated </td><td> Aug 30, 2016</td></tr>
 <tr><td> Discussion </td><td> NA </td></tr>
@@ -21,7 +21,7 @@ to calculate which packages need to be rebuilt and start issuing
 PRs with the new pinning as a local pinning file to the feedstocks
 in topo order.
 
-This CFEP is taken from @beckermr's work on [conda-forge.github.io](https://github.com/conda-forge/conda-forge.github.io/issues/712) and @@mariusvniekerk's work in [conda-smithy](https://github.com/conda-forge/conda-forge.github.io/issues/712).
+This CFEP is taken from @beckermr's work on [conda-forge.github.io](https://github.com/conda-forge/conda-forge.github.io/issues/712) and @mariusvniekerk's work in [conda-smithy](https://github.com/conda-forge/conda-forge.github.io/issues/712).
 
 ## Motivation
 Currently when we move pinnings we move the pin in the ``conda-forge-pinning-feedstock``.
