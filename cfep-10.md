@@ -40,7 +40,7 @@ We should advertise these as needing new maintainers.
 This feedstock has no or unresponsive maintainers and either needs new maintainers or to be archived.
 Advertise that this needs maintainers and for the current ones re-engage with the feedstock or remove
 themselves, otherwise the feedstock will be archived. Set a deadline of X days/weeks/months for new
-maintainers to come on board, if nothing happens the feedstock is archived.
+maintainers to come on board or existing maintainers to re-engage, if nothing happens the feedstock is archived.
 
 ### Archived
 Effectively removed from the CF ecosystem. 
