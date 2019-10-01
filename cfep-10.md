@@ -33,7 +33,7 @@ The feedstock is actively maintained, new versions of the packages are being cre
 More maintainers are always welcome.
 
 ### In Good Standing
-Maintainers are responsive but probably overworked. Multiple bot PRs have begun to pile up.
+Maintainers are responsive but probably overworked. Multiple PRs and issues have begun to pile up.
 We should advertise these as needing new maintainers.
 
 ### Unsupported
