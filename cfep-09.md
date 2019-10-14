@@ -141,7 +141,7 @@ python:
 # resulting pins
 a:
   - 1.5
-b:
+python:
   - 3.6
   - 3.8a1
 someflag:
