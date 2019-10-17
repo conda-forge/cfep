@@ -13,7 +13,7 @@
 
 Some packages, for example Qt and gcc, are very hard to build on the currently used CIs (CircleCI, Travis, AppVeyor, and AzurePipelines) due to time limitation.
 
-While the is a small set of packages we need a protocol to upload builds on conda-forge anaconda channel that are built off-CIs (local builds).
+While this is a small set of packages we need a protocol to upload builds on conda-forge anaconda channel that are built off-CIs (local builds).
 
 ## Specification
 
