@@ -19,7 +19,7 @@ While this is a small set of packages we need a protocol to upload builds on con
 
 The protocol we propose is:
 
-- The package needs a feedstock will be maintained via PRs as any other package;
+- The package needs a feedstock and will be maintained via PRs as any other package;
 
 - When a PR is approved a core member will build the package locally, following the [conda-forge docs](https://conda-forge.org/docs/maintainer/updating_pkgs.html#testing-changes-locally) for local builds. Always be sure to check the docs for the latest best practices.
 
