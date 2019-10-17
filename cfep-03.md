@@ -23,7 +23,9 @@ The protocol we propose is:
 
 - When a PR is approved a core member will build the package locally, following the [conda-forge docs](https://conda-forge.org/docs/maintainer/updating_pkgs.html#testing-changes-locally) for local builds. Always be sure to check the docs for the latest best practices.
 
-- Core members can then test and upload the packages. Not that manual uploads have the uploader username, serving as a maker for manual uploads and a tracker for asking questions regarding the build environment used.
+- The build logs should be saved and posted in the feedstock PR.
+
+- Core members can then test and upload the packages. Note that manual uploads have the uploader username, serving as a maker for manual uploads and a tracker for asking questions regarding the build environment used.
 
 ## Motivation
 
