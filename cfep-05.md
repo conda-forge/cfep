@@ -30,7 +30,7 @@ The same semantics are slightly more cumbersome within the `conda` ecosystem but
 are still manageable.  The analogous command with `conda` is (for example):
 
 ```
-conda install -c conda-forge/label/rc matplotlib
+conda install -c conda-forge/label/rc_matplotlib matplotlib
 ```
 
 We, as the conda-forge community need to arrive at a consensus for what labels
@@ -82,22 +82,31 @@ So make sure that you ***tag*** your package in such a way that the package name
 that conda-build spits out will sort the package uploaded with an "rc" label
 higher than the package uploaded with the "dev" label.
 
-### Auto-expiration of packages
+To create a `dev` or `rc` package a PR can be issued into the `dev` or `rc` branch of the
+feedstock.
+This branch must change the `conda_forge_config.yaml` to point to the `dev_<package_name>` or `rc_<package_name>`.
 
-Pre-release packages are transient by definition and so should not stick around
-forever. Packages should therefore be automatically expired after two months (8 weeks)
-
-**Open Question**: How do we programmtically access the pacakages upload time?
- This is under discussion in the PR for this cfep.
-
+For example, matplotlib rc releases would include:
+```yaml
+...
+channels:
+  targets:
+    - [conda-forge, rc_matplotlib]
+```
 
 ## Alternatives
 
 * Upload pre-release packages to a different anaconda.org user, perhaps
   `conda-forge-pre`
 * Dump all pre-release packages into one label: "pre"
-* Additionally label all packages with the feedstock name as a prefix to the
-  label, e.g.: "matplotlib-dev"
+
+We understand the proposed approach does not have the same user experience
+as `pip --pre`, which seems simpler and easier to use.
+Currently this level of functionality is not possible with conda while
+maintaining the stability of environment we currently provide.
+This CFEP proposes and initial step toward supporting dev/rc releases.
+As we explore this functinality more we can re-evaluate the user and maintainer
+expreience and how best to provide this functionality.
 
 ## FAQ
 
@@ -113,18 +122,14 @@ Use the following command, but replace `PACKAGE_NAME` with the package you want
 to install and replace `LABEL` with "rc" or "dev":
 
 ```
-conda install -c conda-forge -c conda-forge/label/LABEL PACKAGE_NAME
+conda install -c conda-forge -c conda-forge/label/LABEL_PACKAGE_NAME PACKAGE_NAME
 ```
 
 For example, let's install matplotlib from the "rc" label:
 
 ```
-conda install -c conda-forge -c conda-forge/label/rc matplotlib
+conda install -c conda-forge -c conda-forge/label/rc_matplotlib matplotlib
 ```
-
-As of this writing (01/01/2017), the above command will install matplotlib
-version "2.0.0rc2-np111py35_2" which has the "rc" label on the conda-forge
-channel on anaconda.org.
 
 ## Copyright
 
