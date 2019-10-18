@@ -4,7 +4,7 @@
 <tr><td> Status </td><td> Proposed </td></tr>
 <tr><td> Author(s) </td><td> Eric Dill &lt;thedizzle@gmail.com&gt;</td></tr>
 <tr><td> Created </td><td> Sept 09, 2016</td></tr>
-<tr><td> Updated </td><td> Sept 09, 2016</td></tr>
+<tr><td> Updated </td><td> Oct 18, 2019</td></tr>
 <tr><td> Discussion </td><td> NA </td></tr>
 <tr><td> Implementation </td><td> NA </td></tr>
 </table>
@@ -19,14 +19,14 @@ packages.
 
 ## Motivation
 
-Pypi allows package maintainers to upload "prerelease" builds which users can
+PyPI allows package maintainers to upload "prerelease" builds which users can
 then install via
 
 ```
 pip install PACKAGE_NAME --pre
 ```
 
-The same semantics are slightly more cumbersome within the `conda` ecosystem but
+The same semantics are slightly more cumbersome within the Conda ecosystem but
 are still manageable.  The analogous command with `conda` is (for example):
 
 ```
@@ -121,13 +121,13 @@ Use the following command, but replace `PACKAGE_NAME` with the package you want
 to install and replace `LABEL` with "rc" or "dev":
 
 ```
-conda install -c conda-forge -c conda-forge/label/LABEL_PACKAGE_NAME PACKAGE_NAME
+conda install -c conda-forge/label/LABEL_PACKAGE_NAME -c conda-forge PACKAGE_NAME
 ```
 
 For example, let's install matplotlib from the "rc" label:
 
 ```
-conda install -c conda-forge -c conda-forge/label/rc_matplotlib matplotlib
+conda install -c conda-forge/label/rc_matplotlib -c conda-forge matplotlib
 ```
 
 ## Copyright
