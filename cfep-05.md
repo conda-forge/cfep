@@ -84,14 +84,13 @@ higher than the package uploaded with the "dev" label.
 
 To create a `dev` or `rc` package a PR can be issued into the `dev` or `rc` branch of the
 feedstock.
-This branch must change the `conda_forge_config.yaml` to point to the `dev_<package_name>` or `rc_<package_name>`.
+This branch must change the `recipe/conda_build_config.yaml` to point to the `dev_<package_name>` or `rc_<package_name>`.
 
 For example, matplotlib rc releases would include:
 ```yaml
 ...
-channels:
-  targets:
-    - [conda-forge, rc_matplotlib]
+channel_targets:
+  - conda-forge rc_matplotlib
 ```
 
 ## Alternatives
