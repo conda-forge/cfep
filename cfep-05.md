@@ -14,7 +14,7 @@
 There are a number of recipe maintainers who have asked for guidance regarding
 how to make pre-release builds available with the CI infrastructure on
 conda-forge. This document outlines how those builds should be labeled on
-anaconda.org so that the more adventurous users can try our these pre-release
+anaconda.org so that the more adventurous users can try out these pre-release
 packages.
 
 ## Motivation
