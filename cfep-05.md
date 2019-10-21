@@ -148,6 +148,17 @@ For example, let's install matplotlib from the "rc" label:
 conda install -c conda-forge/label/rc_matplotlib -c conda-forge matplotlib
 ```
 
+## Work Items
+
+- Fix intructions to install the package in the README.
+
+  Currently, conda-smithy generates incorrect instructions in the README.
+  This is tracked in https://github.com/conda-forge/conda-smithy/issues/996
+
+- Disable uploading to conda-forge/label/main if sources include other pre-release labels
+
+  This is tracked in https://github.com/conda-forge/conda-forge-ci-setup-feedstock/issues/66
+
 ## Copyright
 
 This document has been placed in the public domain.
