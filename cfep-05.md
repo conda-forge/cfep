@@ -93,6 +93,24 @@ channel_targets:
   - conda-forge rc_matplotlib
 ```
 
+If a pre-release build of B depends on a pre-release build of A, then A should have,
+```yaml
+...
+channel_targets:
+  - conda-forge rc_A
+```
+while B should have,
+```yaml
+...
+channel_sources:
+  - conda-forge/label/rc_A,conda-forge,defaults
+channel_targets:
+  - conda-forge rc_B
+```
+in `recipe/conda_build_config.yaml` in their respective feedstocks.
+
+NOTE: A rerender needs to happen for these changes to reflect in CI files.
+
 ## Alternatives
 
 * Upload pre-release packages to a different anaconda.org user, perhaps
