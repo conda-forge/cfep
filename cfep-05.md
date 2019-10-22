@@ -38,18 +38,15 @@ we will affix to packages so that there is a consistent user experience.
 
 ## Backwards Compatibility
 
-There are only minimal concerns of backwards compatibility.  There are a few
-relevant labels that package maintainers have affixed to their pre-release
-packages. These are "pre" (1), "prerelease" (2), "rc" (2) and "test" (1).  The
-numbers in parentheses represent the number of projects which have released
-these pre-release packages.  With six total projects using non-main labels, I do
-not think we have a serious concern with backwards compatibility due to changes
-that come about via this proposal.
+There are only minimal concerns of backwards compatibility.
+The number of feedstocks that issue pre-releases is small, mitigating
+backwards compatibility issues.
 
 ## Specification
 
-Mark the pre-release package on anaconda.org as "dev" or "rc". The semantics of
-these labels should generally follow the
+Mark the pre-release package on anaconda.org as "dev" or "rc" by adding them to 
+the appropriate label.
+The semantics of these labels should generally follow the
 [guidelines](https://docs.python.org/devguide/devcycle.html#stages) that Python
 itself follows.
 
@@ -62,29 +59,11 @@ itself follows.
   still packages that could see substantial changes
   between the dev version and the final release.
 
-If you wish to add numbers to your "dev" or "rc" you should follow the
-[guidelines](http://conda.pydata.org/docs/spec.html#build-version-spec) put
-forth by Continuum regarding version sorting in `conda`. Also see the [source
-code for conda
-4.2.13](https://github.com/conda/conda/blob/4.2.13/conda/version.py#L93-L119).
-The tl;dr here is that conda sorts as follows:
-
-```
-< 1.0
-< 1.1dev1    # special case 'dev'
-< 1.1.0dev1  # special case 'dev'
-== 1.1.dev1   # 0 is inserted before string
-< 1.1.0rc1
-< 1.1.0
-```
-
-So make sure that you ***tag*** your package in such a way that the package name
-that conda-build spits out will sort the package uploaded with an "rc" label
-higher than the package uploaded with the "dev" label.
+See the Appendix for dev and rc version order specifics.
 
 To create a `dev` or `rc` package a PR can be issued into the `dev` or `rc` branch of the
 feedstock.
-This branch must change the `recipe/conda_build_config.yaml` to point to the `dev_<package_name>` or `rc_<package_name>`.
+This branch must change the `recipe/conda_build_config.yaml` to point to the `dev_<package_name>` or `rc_<package_name>` label.
 
 For example, matplotlib rc releases would include:
 ```yaml
@@ -158,6 +137,29 @@ conda install -c conda-forge/label/rc_matplotlib -c conda-forge matplotlib
 - Disable uploading to conda-forge/label/main if sources include other pre-release labels
 
   This is tracked in https://github.com/conda-forge/conda-forge-ci-setup-feedstock/issues/66
+
+## Appendix
+
+If you wish to add numbers to your "dev" or "rc" you should follow the
+[guidelines](http://conda.pydata.org/docs/spec.html#build-version-spec) put
+forth by Continuum regarding version sorting in `conda`. Also see the [source
+code for conda
+4.2.13](https://github.com/conda/conda/blob/4.2.13/conda/version.py#L93-L119).
+The tl;dr here is that conda sorts as follows:
+
+```
+< 1.0
+< 1.1dev1    # special case 'dev'
+< 1.1.0dev1  # special case 'dev'
+== 1.1.dev1   # 0 is inserted before string
+< 1.1.0rc1
+< 1.1.0
+```
+
+So make sure that you ***tag*** your package in such a way that the package name
+that conda-build spits out will sort the package uploaded with an "rc" label
+higher than the package uploaded with the "dev" label.
+
 
 ## Copyright
 
