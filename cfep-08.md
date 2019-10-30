@@ -1,7 +1,7 @@
 
 <table>
 <tr><td> Title </td><td> Packages which are "Too Big to Fail"</td>
-<tr><td> Status </td><td> Proposed </td></tr>
+<tr><td> Status </td><td> Deferred </td></tr>
 <tr><td> Author(s) </td><td> Christopher J. "CJ" Wright &lt;cjwright4242@gmail.com&gt;</td></tr>
 <tr><td> Created </td><td> Aug 13, 2018</td></tr>
 <tr><td> Updated </td><td> Aug 13, 2018</td></tr>
