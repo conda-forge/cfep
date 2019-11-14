@@ -15,6 +15,8 @@ Some packages, for example Qt and gcc, are very hard to build on the currently u
 
 While this is a small set of packages we need a protocol to upload builds on conda-forge anaconda channel that are built off-CIs (local builds).
 
+Note that this is a "last resort" option and we should always try to build on CIs first!
+
 ## Specification
 
 The protocol we propose is:
