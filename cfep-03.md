@@ -25,7 +25,7 @@ The protocol we propose is:
 
 - The build logs should be saved and posted in the feedstock PR.
 
-- Core members can then test and upload the packages. Note that manual uploads have the uploader username, serving as a maker for manual uploads and a tracker for asking questions regarding the build environment used.
+- Core members can then test and upload the packages. Note that manual uploads have the uploader username, serving as a maker for manual uploads and a tracker for asking questions regarding the build environment used. The build logs should be saved and posted in the feedstock PR. (One easy way to achieve that on Linux is to use `python build-locally.py 2>&1 | tee log.txt` to build).
 
 ## Motivation
 
