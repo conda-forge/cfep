@@ -16,7 +16,12 @@ implement a simple bot to close excessively old PRs on staged recipes. Our prop
 close PRs on staged-recipes that are more than 6 months old. The staged-recipes team is charged with both maintaining 
 this bot and deciding on a nice and friendly message. 
 
-As this CFEP is quite simple, we have omitted any other sections.  
+## Motivation
+
+As of writing, the staged recipes repo has 289 PRs open from 2018 or earlier. Over time, the number of open PRs on 
+staged recipes has grown as PRs are abandoned but not closed. The staged recipes team is busy responding to new PRs 
+and so has not had time to clean out the old PRs. This CFEP adds a minimal level of automation in order to help the 
+team manage the growing number of open PRs.
 
 ## Copyright
 
