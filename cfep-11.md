@@ -2,7 +2,7 @@
 <table>
 <tr><td> Title </td><td> Automated Closing of Excessively Old PRs on Staged Recipes </td>
 <tr><td> Status </td><td> Draft  </td></tr>
-<tr><td> Author(s) </td><td> Matthew R Becker &lt;becker.mr@gmail.com&gt; C.J. Wright &lt;&gt;</td></tr>
+<tr><td> Author(s) </td><td> Matthew R Becker &lt;becker.mr@gmail.com&gt; Christopher J. "CJ" Wright &lt;cjwright4242@gmail.com&gt;</td></tr>
 <tr><td> Created </td><td> Nov 15, 2019</td></tr>
 <tr><td> Updated </td><td> Nov 15, 2019</td></tr>
 <tr><td> Discussion </td><td> NA </td></tr>
