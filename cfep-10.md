@@ -4,8 +4,8 @@
 <tr><td> Status </td><td> Proposed </td></tr>
 <tr><td> Author(s) </td><td> Christopher J. "CJ" Wright &lt;cjwright4242@gmail.com&gt;</td></tr>
 <tr><td> Created </td><td> Sept 29, 2019</td></tr>
-<tr><td> Discussion </td><td> link to the PR where the CFEP is being discussed, NA is circulated initially </td></tr>
-<tr><td> Implementation </td><td> link to the PR for the implementation, NA if not availble </td></tr>
+<tr><td> Discussion </td><td> <a href="https://github.com/conda-forge/cfep/pull/15">cfep#15</a> </td></tr>
+<tr><td> Implementation </td><td> NA </td></tr>
 </table>
 
 ## Abstract
@@ -17,24 +17,24 @@ help, maintainers, or archiving.
 
 ## Motivation
 
-It can be difficult for maintainers and would be maintainers to identify which feedstocks could use their
+It can be difficult for maintainers and would-be maintainers to identify which feedstocks could use their
 help.
 Additionally, it is difficult for core to know which feedstocks need additional help or archiving.
-Finally, users of CF packages may find it difficult to understand which packages are dorment.
+Finally, users of CF packages may find it difficult to understand which packages are dormant.
 This proposal aims to expose this information more clearly.
 
 ## Specification
 
-This proposal creates four new statuses
+This proposal creates four new statuses:
 
-### In Perfect Standing
-The feedstock is actively maintained, new versions of the packages are being created as needed, autotick bot PRs are addressed 
-(merged, fixed, or closed) promptly. Less than 3 bot PRs are open at once.
+### In Excellent Standing
+The feedstock is actively maintained, new versions of the packages are being created as needed, PRs and issues are addressed 
+promptly. Less than 3 bot PRs are open at once.
 More maintainers are always welcome.
 
 ### In Good Standing
 Maintainers are responsive but probably overworked. Multiple PRs and issues have begun to pile up.
-We should advertise these as needing new maintainers.
+We should advertise these as needing additional maintainers.
 
 ### Unsupported
 This feedstock has no or unresponsive maintainers and either needs new maintainers or to be archived.
