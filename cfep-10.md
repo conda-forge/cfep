@@ -10,7 +10,7 @@
 
 ## Abstract
 
-This document proposes the creation of four new statuses for feedstocks that denote the	
+This document proposes the creation of four new statuses for feedstocks that denote the
 standing of the feedstock and transistions between the standings.
 These statuses will help us triage feedstocks and identify which feedstocks need
 help, maintainers, or archiving.
@@ -23,31 +23,42 @@ Additionally, it is difficult for core to know which feedstocks need additional 
 Finally, users of CF packages may find it difficult to understand which packages are dormant.
 This proposal aims to expose this information more clearly.
 
-## Specification
+## Definitions
 
 This proposal creates four new statuses:
 
 ### In Excellent Standing
-The feedstock is actively maintained, new versions of the packages are being created as needed, PRs and issues are addressed 
-promptly. Less than 3 bot PRs are open at once.
-More maintainers are always welcome.
+The feedstock is actively maintained. New versions of the packages are being created as needed, PRs and issues are addressed
+promptly. Fewer than 3 bot PRs are open at once.
 
 ### In Good Standing
 Maintainers are responsive but probably overworked. Multiple PRs and issues have begun to pile up.
-We should advertise these as needing additional maintainers.
 
 ### Unsupported
-This feedstock has no or unresponsive maintainers and either needs new maintainers or to be archived.
-Advertise that this needs maintainers and for the current ones re-engage with the feedstock or remove
-themselves, otherwise the feedstock will be archived. Set a deadline of X days/weeks/months for new
-maintainers to come on board or existing maintainers to re-engage, if nothing happens the feedstock is archived.
+This feedstock has no or unresponsive maintainers.
+
+Such a feedstock either needs new maintainers or to be archived. Set a deadline of X days/weeks/months for new
+maintainers to come on board or existing maintainers to re-engage. If nothing happens the feedstock is archived.
 
 ### Archived
-Effectively removed from the CF ecosystem. 
+Effectively removed from the CF ecosystem.
+
 Keep a public list of these so that would be maintainers can see where they can help out and so users
 can understand if new packages will be created.
-New maintainers can ping core in conda-forge.github.io to ask for an archived feedstock be reactivated.
 
+## Policies
+
+### Maintainer Interactions
+
+- For feedstocks in excellent standing, additional maintainers are always
+  welcome but not actively recruited.
+- Feedstocks in good standing should be advertised as needing additional
+  maintainers.
+- The maintainers of unsupported feedstocks should be encouraged to either
+  re-engage with the feedstock or remove themselves. New maintainers should be
+  actively recruited.
+- Potential maintainers interested in resurrecting archived feedstocks can
+  ping core in conda-forge.github.io.
 
 ## Implementation Discussion
 - Where should we put the status information?
