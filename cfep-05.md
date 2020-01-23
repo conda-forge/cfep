@@ -1,7 +1,7 @@
 
 <table>
 <tr><td> Title </td><td> Providing pre-release builds on the conda-forge anaconda channel </td>
-<tr><td> Status </td><td> Proposed </td></tr>
+<tr><td> Status </td><td> Accepted </td></tr>
 <tr><td> Author(s) </td><td> Eric Dill &lt;thedizzle@gmail.com&gt;</td></tr>
 <tr><td> Created </td><td> Sept 09, 2016</td></tr>
 <tr><td> Updated </td><td> Oct 18, 2019</td></tr>
