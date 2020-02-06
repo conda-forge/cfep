@@ -4,7 +4,7 @@
 <tr><td> Status </td><td> Accepted </td></tr>
 <tr><td> Author(s) </td><td> Eric Dill &lt;thedizzle@gmail.com&gt;</td></tr>
 <tr><td> Created </td><td> Sept 09, 2016</td></tr>
-<tr><td> Updated </td><td> Oct 18, 2019</td></tr>
+<tr><td> Updated </td><td> Feb 5, 2020</td></tr>
 <tr><td> Discussion </td><td> NA </td></tr>
 <tr><td> Implementation </td><td> NA </td></tr>
 </table>
@@ -30,7 +30,7 @@ The same semantics are slightly more cumbersome within the Conda ecosystem but
 are still manageable.  The analogous command with `conda` is (for example):
 
 ```
-conda install -c conda-forge/label/rc_matplotlib matplotlib
+conda install -c conda-forge/label/matplotlib_rc matplotlib
 ```
 
 We, as the conda-forge community need to arrive at a consensus for what labels
@@ -63,28 +63,28 @@ See the Appendix for dev and rc version order specifics.
 
 To create a `dev` or `rc` package a PR can be issued into the `dev` or `rc` branch of the
 feedstock.
-This branch must change the `recipe/conda_build_config.yaml` to point to the `dev_<package_name>` or `rc_<package_name>` label.
+This branch must change the `recipe/conda_build_config.yaml` to point to the `<package_name>_dev` or `<package_name>_rc` label.
 
 For example, matplotlib rc releases would include:
 ```yaml
 ...
 channel_targets:
-  - conda-forge rc_matplotlib
+  - conda-forge matplotlib_rc
 ```
 
 If a pre-release build of B depends on a pre-release build of A, then A should have,
 ```yaml
 ...
 channel_targets:
-  - conda-forge rc_A
+  - conda-forge A_rc
 ```
 while B should have,
 ```yaml
 ...
 channel_sources:
-  - conda-forge/label/rc_A,conda-forge,defaults
+  - conda-forge/label/A_rc,conda-forge,defaults
 channel_targets:
-  - conda-forge rc_B
+  - conda-forge B_rc
 ```
 in `recipe/conda_build_config.yaml` in their respective feedstocks.
 
@@ -124,7 +124,7 @@ conda install -c conda-forge/label/LABEL_PACKAGE_NAME -c conda-forge PACKAGE_NAM
 For example, let's install matplotlib from the "rc" label:
 
 ```
-conda install -c conda-forge/label/rc_matplotlib -c conda-forge matplotlib
+conda install -c conda-forge/label/matplotlib_rc -c conda-forge matplotlib
 ```
 
 ## Work Items
@@ -137,6 +137,14 @@ conda install -c conda-forge/label/rc_matplotlib -c conda-forge matplotlib
 - Disable uploading to conda-forge/label/main if sources include other pre-release labels
 
   This is tracked in https://github.com/conda-forge/conda-forge-ci-setup-feedstock/issues/66
+
+## Updates
+
+- Feb 5, 2020: The labels were changed to put the dev/rc indication after the
+  package name rather than before, i.e., `<package_name>_dev` and
+  `<package_name>_rc` instead of `dev_<package_name>` and `rc_<package_name>`,
+  respectively. This aligns with the conclusions of the survey and discussion
+  during the approval process for this CFEP.
 
 ## Appendix
 
