@@ -118,7 +118,7 @@ Use the following command, but replace `PACKAGE_NAME` with the package you want
 to install and replace `LABEL` with "rc" or "dev":
 
 ```
-conda install -c conda-forge/label/LABEL_PACKAGE_NAME -c conda-forge PACKAGE_NAME
+conda install -c conda-forge/label/PACKAGE_NAME_LABEL -c conda-forge PACKAGE_NAME
 ```
 
 For example, let's install matplotlib from the "rc" label:
