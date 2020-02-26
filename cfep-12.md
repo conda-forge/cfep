@@ -19,7 +19,7 @@ violations are reported.
 
 When a violation is brought to the attention of the Core team, the feedstock maintenance
 team should be made aware by the Core team in a github issue on the feedstock and notified using the
-github handle.
+github handles of the maintenance team members.
 
 A specified time period would be given to the maintenance team to respond to the claim and
 a specified time period would be given to address the issue.
