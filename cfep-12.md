@@ -21,8 +21,8 @@ When a violation is brought to the attention of the Core team, the feedstock mai
 team should be made aware by the Core team in a github issue on the feedstock and notified using the
 github handles of the maintenance team members.
 
-A specified time period would be given to the maintenance team to respond to the claim and
-a specified time period would be given to address the issue.
+A week would be given to the maintenance team to respond to the claim and
+a week would be given to address the issue.
 
 If the issue is not addressed after the specified time period, the package will be moved
 to the broken label.
