@@ -4,7 +4,7 @@
 <tr><td> Status </td><td> Draft </td></tr>
 <tr><td> Author(s) </td><td> Isuru Fernando &lt;isuruf@gmail.com&gt;</td></tr>
 <tr><td> Created </td><td> Feb 26, 2020</td></tr>
-<tr><td> Updated </td><td> Aug 30, 2016</td></tr>
+<tr><td> Updated </td><td> Feb 26, 2020</td></tr>
 <tr><td> Discussion </td><td> NA </td></tr>
 <tr><td> Implementation </td><td> NA </td></tr>
 </table>
