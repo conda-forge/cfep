@@ -22,7 +22,8 @@ team should be made aware by the Core team in a github issue on the feedstock an
 github handles of the maintenance team members.
 
 A week would be given to the maintenance team to respond to the claim and
-a week would be given to address the issue.
+another week would be given to address the issue. The feedstock maintenance team
+may ask to extend the deadlines.
 
 If the issue is not addressed after the specified time period, the package will be moved
 to the broken label.
