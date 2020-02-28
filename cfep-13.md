@@ -27,7 +27,8 @@ We will secure the uploads of outputs to `anaconda.org` via the following proces
    encrypted GitHub keys for bot admins will have write access in order to generate 
    the secret keys and push then to the CI providers.
 2. A public, global registry of all outputs from all feedstocks will be kept
-   in a repo on github. Write access to this repo is limited to core as well.
+   in a repo on github. Write access to this repo is limited to core and bot 
+   admins as well.
 3. When a feedstock builds new outputs it wants to upload, it will push these outputs
    to a staging organization on `anaconda.org`. It will also send the names of the
    outputs, their SHA256 checksums, the feedstock name, and the secret key to a
