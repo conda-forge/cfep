@@ -23,20 +23,19 @@ We will secure the uploads of outputs to `anaconda.org` via the following proces
 
 1. Each feedstock is provisioned with a secret key that is only known to the
    maintainers of that feedstock and the core team. These keys will be kept in
-   a private repo with only core members having read and write access. This key will be pushed to
-   the CI providers for that repo as well.
-2. Feedstock creation will move to a separate process in order to secure the keys
-   associated with our CI provider accounts and to securely register outputs of feedstocks.
-3. A public, global registry of all outputs from all feedstocks will be kept
+   a private repo with only core members having read access. Core members and 
+   encrypted GitHub keys for bot admins will have write access in order to generate 
+   the secret keys and push then to the CI providers.
+2. A public, global registry of all outputs from all feedstocks will be kept
    in a repo on github. Write access to this repo is limited to core as well.
-4. When a feedstock builds new outputs it wants to upload, it will push these outputs
+3. When a feedstock builds new outputs it wants to upload, it will push these outputs
    to a staging organization on `anaconda.org`. It will also send the names of the
    outputs, their SHA256 checksums, the feedstock name, and the secret key to a
    validation web service. This web service then verifies the secret key-feedstock
    combination and verifies that the outputs are allowed for that feedstock.
-5. If everything is ok, the outputs are copied from the staging organization to the
+4. If everything is ok, the outputs are copied from the staging organization to the
    main conda-forge channels.
-6. The service should fail the CI run if the output is not copied. It should 
+5. The service should fail the CI run if the output is not copied. It should 
    also post a comment on the PR that the outputs were copied or not to help users.
 
 
