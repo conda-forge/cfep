@@ -45,14 +45,14 @@ We will secure the uploads of outputs to `anaconda.org` via the following proces
 In order to mitigate the impact on feedstock maintainers, we will
 
 1. Advertise this change widely as it is implemented.
-2. Create an admin bot command to create a PR for new registering new outputs.
-3. PR CI runs should check all of their outputs against the web service in a "dry-run"
-   mode and fail if any output is not registered.
-4. PRs for registering new outputs will be automatically merged if they 
-   don't overlap with any existing name on any feedstock.
+2. PR CI runs should check all of their outputs against the web service in a "dry-run"
+   mode and fail if any output conflicts with some other package.
+3. Both the "dry run" and "upload" commands to the web service will automatically 
+   register new outputs that do not conflict.
    
 The above combination of items will let users register new outputs for feedstocks 
-in a mostly self-service manner while also not letting them write to any output.
+in a mostly self-service manner while also not letting them write to an arbitrary 
+output.
 
 ## Alternatives
 
