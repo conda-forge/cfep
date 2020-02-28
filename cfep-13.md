@@ -34,9 +34,10 @@ We will secure the uploads of outputs to `anaconda.org` via the following proces
    outputs, their SHA256 checksums, the feedstock name, and the secret key to a
    validation web service. This web service then verifies the secret key-feedstock
    combination and verifies that the outputs are allowed for that feedstock.
-4. If everything is ok, the outputs are copied from the staging organization to the
+5. If everything is ok, the outputs are copied from the staging organization to the
    main conda-forge channels.
-6. The service should post a comment on the PR that the outputs were copied.
+6. The service should fail the CI run if the output is not copied. It should 
+   also post a comment on the PR that the outputs were copied or not to help users.
 
 
 ### The Impact on Users
