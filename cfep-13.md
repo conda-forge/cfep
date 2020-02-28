@@ -29,7 +29,7 @@ We will secure the uploads of outputs to `anaconda.org` via the following proces
    associated with our CI provider accounts and to securely register outputs of feedstocks.
 3. A public, global registry of all outputs from all feedstocks will be kept
    in a repo on github. Write access to this repo is limited to core as well.
-3. When a feedstock builds new outputs it wants to upload, it will push these outputs
+4. When a feedstock builds new outputs it wants to upload, it will push these outputs
    to a staging organization on `anaconda.org`. It will also send the names of the
    outputs, their SHA256 checksums, the feedstock name, and the secret key to a
    validation web service. This web service then verifies the secret key-feedstock
