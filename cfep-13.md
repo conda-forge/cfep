@@ -23,7 +23,7 @@ We will secure the uploads of outputs to `anaconda.org` via the following proces
 
 1. Each feedstock is provisioned with a secret key that is only known to the
    maintainers of that feedstock and the core team. These keys will be kept in
-   a private repo with only core members having write access. This key will be pushed to
+   a private repo with only core members having read and write access. This key will be pushed to
    the CI providers for that repo as well.
 2. Feedstock creation will move to a separate process in order to secure the keys
    associated with our CI provider accounts and to securely register outputs of feedstocks.
