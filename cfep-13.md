@@ -47,8 +47,8 @@ In order to mitigate the impact on feedstock maintainers, we will
 1. Advertise this change widely as it is implemented.
 2. PR CI runs should check all of their outputs against the web service in a "dry-run"
    mode and fail if any output conflicts with some other package.
-3. Both the "dry run" and "upload" commands to the web service will automatically 
-   register new outputs that do not conflict.
+3. Package "upload" commands to the web service will automatically 
+   register new outputs for a feedstock that do not conflict with any other outputs.
    
 The above combination of items will let users register new outputs for feedstocks 
 in a mostly self-service manner while also not letting them write to an arbitrary 
