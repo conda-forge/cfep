@@ -45,7 +45,7 @@ In order to mitigate the impact on feedstock maintainers, we will
 
 1. Advertise this change widely as it is implemented.
 2. Create an admin bot command to create a PR for new outputs.
-3. Add a linter check that all outputs exist.
+3. Add a linter check that all outputs are registered for this feedstock in the global database.
 4. Automerge PRs for outputs that don't overlap with any
    existing name on any feedstock.
 
