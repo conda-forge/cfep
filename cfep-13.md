@@ -46,13 +46,10 @@ In order to mitigate the impact on feedstock maintainers, we will
 
 1. Advertise this change widely as it is implemented.
 2. Create an admin bot command to create a PR for new registering new outputs.
-3. Have the rerender command check that all outputs are registered for 
-   this feedstock in the global database and post a comment on the PR if any outputs 
-   are not registered properly.
-4. PR CI runs should check all of their outputs against the web service in a `dry-run`
+3. PR CI runs should check all of their outputs against the web service in a "dry-run"
    mode and fail if any output is not registered.
-5. PRs for outputs that don't overlap with any existing name on any feedstock will be 
-   automatically merged.
+4. PRs for registering new outputs will be automatically merged if they 
+   don't overlap with any existing name on any feedstock.
    
 The above combination of items will let users register new outputs for feedstocks 
 in a mostly self-service manner while also not letting them write to any output.
