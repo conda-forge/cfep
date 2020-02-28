@@ -35,7 +35,7 @@ We will secure the uploads of outputs to `anaconda.org` via the following proces
    validation web service. This web service then verifies the secret key-feedstock
    combination and verifies that the outputs are allowed for that feedstock.
 4. If everything is ok, the outputs are copied from the staging organization to the
-   main conda-forge channels.
+   main conda-forge channels. The outputs are then deleted once the copy is done.
 5. The service should fail the CI run if the output is not copied. It should 
    also post a comment on the PR that the outputs were copied or not to help users.
 
