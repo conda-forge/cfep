@@ -21,37 +21,29 @@ should mitigate.
 
 We will secure the uploads of outputs to `anaconda.org` via the following process.
 
-1. Each feedstock is provisioned with a secret key, either an API key or the 
-   private key of a public/private key pair, to enable secure, signed communication 
-   with a validation webservice. For API keys, these keys will be kept in
-   a private repo with only core members having read access. For public/private key pairs, 
-   the public keys can be stored in the open. Core members and encrypted GitHub keys 
-   for bot admins will have write access in order to generate the secret keys, push 
-   them to the CI providers, and push the appropriate key to the global key store.
-2. A public, global registry of all outputs from all feedstocks will be kept
+1. A public, global registry of all outputs from all feedstocks will be kept
    in a repo on github. Write access to this repo is limited to core and bot 
    admins as well.
-3. When a feedstock builds new outputs it wants to upload, it will push these outputs
-   to a staging organization on `anaconda.org`. It will also send the names of the
-   outputs, their SHA256 checksums, the feedstock name, and the secret key to a
-   validation web service. This web service then verifies the secret key-feedstock
-   combination and verifies that the outputs are allowed for that feedstock.
+2. When a feedstock builds new outputs it wants to upload, it will push these outputs
+   to a staging organization on `anaconda.org`. These outputs will either be signed 
+   so that they can be validated or the feedstock will directly alert the validation 
+   service.
+3. The validation service will validate that any outputs in the staging org are 
+   from the correct feedstock, the actual outputs to be upoloaded, and allowed 
+   for the feedstock by checking against the global registry.
 4. If everything is ok, the outputs are copied from the staging organization to the
    main conda-forge channels. The outputs are then deleted once the copy is done.
-5. The service should fail the CI run if the output is not copied. It should 
-   also post a comment on the PR that the outputs were copied or not to help users.
-
+5. The service should report a failure to users if an output is not copied.
 
 ### The Impact on Users
 
 In order to mitigate the impact on feedstock maintainers, we will
 
 1. Advertise this change widely as it is implemented.
-2. PR CI runs should check all of their outputs against the web service in a "dry-run"
-   mode and fail if any output conflicts with some other package.
-3. Package "upload" commands to the web service will automatically 
-   register new outputs for a feedstock that do not conflict with 
-   the outputs of any other feedstock.
+2. PR CI runs should check all of their outputs against the validator 
+   in a "dry-run" mode and fail if any output conflicts with some other package.
+3. New outputs that don't conflict with any others will be added to the global 
+   registry automatically.
    
 The above combination of items will let users register new outputs for feedstocks 
 in a mostly self-service manner while also not letting them write to an arbitrary 
