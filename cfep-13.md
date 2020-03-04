@@ -21,11 +21,13 @@ should mitigate.
 
 We will secure the uploads of outputs to `anaconda.org` via the following process.
 
-1. Each feedstock is provisioned with a secret key that is only known to the
-   maintainers of that feedstock and the core team. These keys will be kept in
-   a private repo with only core members having read access. Core members and 
-   encrypted GitHub keys for bot admins will have write access in order to generate 
-   the secret keys and push then to the CI providers.
+1. Each feedstock is provisioned with a secret key, either an API key or the 
+   private key of a public/private key pair, to enable secure, signed communication 
+   with a validation webservice. For API keys, these keys will be kept in
+   a private repo with only core members having read access. For public/private key pairs, 
+   the public keys can be stored in the open. Core members and encrypted GitHub keys 
+   for bot admins will have write access in order to generate the secret keys, push 
+   them to the CI providers, and push the appropriate key to the global key store.
 2. A public, global registry of all outputs from all feedstocks will be kept
    in a repo on github. Write access to this repo is limited to core and bot 
    admins as well.
