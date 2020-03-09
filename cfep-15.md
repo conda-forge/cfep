@@ -15,9 +15,8 @@ Python 2.7 is officially deprecated. `conda-forge` will follow suit.
 ## Motivation
 
 Python 2.7 has been officially deprecated by the upstream developers and Anaconda Inc.
-Further, vs2008, used to build Python 2.7, is not supported on Azure. Finally, appveyor, 
-which does have vs2008, will not support the per feedstock secrets needed for CFEP-13. 
-Thus we will deprecate all of them in one step.
+Further, vs2008, used to build Python 2.7, is not supported on Azure. Thus we will
+deprecate both here.
 
 ## Specification
 
