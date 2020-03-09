@@ -48,8 +48,8 @@ This team will operate via the following rules
 - only members of `core` can be on this subteam
 - this subteam will report its activity to core at all `core` meetings
 - this subteam will consult with core at `core` meetings regarding all planned activity
-- this subteam will not limit the access by `core` members to any `conda-forge`
-  system, credential, or key
+- this subteam will not limit the access by `core` members to any `conda-forge` resources
+  including but not limited to its systems, credentials, keys, or service accounts
 
 ## Copyright
 
