@@ -21,7 +21,8 @@ should mitigate.
 
 We will secure the uploads of outputs to `anaconda.org` via the following process.
 
-1. A public, global registry of all outputs from all feedstocks will be kept
+1. A public, global registry of the package names mapped to the feedstock that 
+   that generated them will be kept
    in a repo on github. Write access to this repo is limited to core and bot 
    admins as well.
 2. When a feedstock builds new outputs it wants to upload, it will push these outputs
