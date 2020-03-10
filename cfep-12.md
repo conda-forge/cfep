@@ -52,7 +52,13 @@ To address the issue, the following conditions must be met,
    2. Existing package must be fixed according to the terms of the package
 
       To facilitate this, infrastructure will be provided to add a file to the package.
-      (For eg: to add a copyright notice to the package).
+      (For eg: to add a copyright notice to the package). conda-package-handling (CPH)
+      can be used for extracting the package, adding a file and creating a new package.
+      This fixed package will be forced pushed.
+
+      Note that this would change the md5sum of the package and the repodata will be
+      fixed in the next CDN update. No downtime is expected.
+
       If the violation cannot be fixed by adding a file to the package, the packages
       have to be deleted or made private according to the previous guidelines.
 
