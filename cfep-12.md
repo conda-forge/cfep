@@ -57,7 +57,7 @@ To address the issue, the following conditions must be met,
       This fixed package will be forced pushed.
 
       Note that this would change the md5sum of the package and the repodata will be
-      fixed in the next CDN update. No downtime is expected.
+      fixed in the next CDN update. Downtime is expected to be half an hour.
 
       If the violation cannot be fixed by adding a file to the package, the packages
       have to be deleted or made private according to the previous guidelines.
