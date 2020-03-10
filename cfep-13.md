@@ -29,7 +29,7 @@ We will secure the uploads of outputs to `anaconda.org` via the following proces
    so that they can be validated or the feedstock will directly alert the validation 
    service in a secure, verifiable manner.
 3. The validation service will validate that any outputs in the staging org are 
-   from the correct feedstock, the actual outputs to be upoloaded, and allowed 
+   from the correct feedstock, the actual outputs to be uploaded, and allowed 
    for the feedstock (given the global registry).
 4. If everything is ok, the outputs are copied from the staging organization to the
    main conda-forge channels. The outputs are then deleted once the copy is done.
