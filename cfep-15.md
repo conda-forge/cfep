@@ -26,7 +26,7 @@ remove vs2008 in this CFEP as well.
   on an opt-in basis.
 - We will provide no ongoing support for Python 2.7 builds and any builds are
   provided on an "as-is" basis.
-- We will remove vs2008 and deprecate appveyor as a supported CI platform in conjunction 
+- We will remove vs2008 as a compiler in conjunction 
   with the deprecation of Python 2.7. 
 
 ## Reference
