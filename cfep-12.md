@@ -54,7 +54,7 @@ To address the issue, the following conditions must be met,
       To facilitate this, infrastructure will be provided to add a file to the package.
       (For eg: to add a copyright notice to the package).
       If the violation cannot be fixed by adding a file to the package, the packages
-      have to be deleted or moved according to the previous guidelines.
+      have to be deleted or made private according to the previous guidelines.
 
 
 We suggest a message to the maintainers along the following lines
