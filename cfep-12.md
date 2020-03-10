@@ -25,8 +25,37 @@ A week would be given to the maintenance team to respond to the claim and
 another week would be given to address the issue. The feedstock maintenance team
 may ask to extend the deadlines.
 
-If the issue is not addressed after the specified time period, the package will be moved
-to the broken label.
+If the issue is not addressed after the specified time period, the package will be moved using
+one of the following.
+
+   1. Move the package to a private channel accessible only by core.
+
+      This is done if the violation is about terms of redistribution
+      Moving to a private channel that's available to only core makes the package in-house
+      and will not be distributed.
+
+   OR
+
+   2. Delete the package
+
+      If the violation is not about terms of redistribution, but modifying the package by
+      creating a binary package, or if it's about storing the package in the cloud,
+      then the package will be deleted.
+
+      To do this, two core members must volunteer to archive the package locally.
+
+
+To address the issue, the following conditions must be met,
+
+   1. The recipe must be fixed according to the terms of the package.
+
+   2. Existing package must be fixed according to the terms of the package
+
+      To facilitate this, infrastructure will be provided to add a file to the package.
+      (For eg: to add a copyright notice to the package).
+      If the violation cannot be fixed by adding a file to the package, the packages
+      have to be deleted or moved according to the previous guidelines.
+
 
 We suggest a message to the maintainers along the following lines
 
