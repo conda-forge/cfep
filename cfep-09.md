@@ -4,7 +4,7 @@
 <tr><td> Status </td><td> Proposed </td></tr>
 <tr><td> Author(s) </td><td> Christopher J. "CJ" Wright &lt;cjwright4242@gmail.com&gt;; Matthew R. Becker &lt;becker.mr@gmail.com&gt;; Marius van Niekerk &lt;marius.v.niekerk@gmail.com&gt;</td></tr>
 <tr><td> Created </td><td> Feb 20, 2019</td></tr>
-<tr><td> Updated </td><td> Aug 30, 2016</td></tr>
+<tr><td> Updated </td><td> Aug 30, 2019</td></tr>
 <tr><td> Discussion </td><td> NA </td></tr>
 <tr><td> Implementation </td><td> NA </td></tr>
 </table>
