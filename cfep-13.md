@@ -4,9 +4,9 @@
 <tr><td> Status </td><td> Accepted </td></tr>
 <tr><td> Author(s) </td><td> Matt, Marius, Anthony, Isuru</td></tr>
 <tr><td> Created </td><td> Feb 27, 2020</td></tr>
-<tr><td> Updated </td><td> Mar 12, 2020</td></tr>
+<tr><td> Updated </td><td> Mar 16, 2020</td></tr>
 <tr><td> Discussion </td><td> NA </td></tr>
-<tr><td> Implementation </td><td> NA </td></tr>
+<tr><td> Implementation </td><td> https://github.com/conda-forge/conda-forge.github.io/issues/993 </td></tr>
 </table>
 
 ## Abstract
