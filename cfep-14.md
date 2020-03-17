@@ -50,6 +50,8 @@ This team will operate via the following rules
 - this subteam will consult with core at `core` meetings regarding all planned activity
 - this subteam will not limit the access by `core` members to any `conda-forge` resources
   including but not limited to its systems, credentials, keys, or service accounts
+  
+This team has a static charter and any member of core may join upon its creation.
 
 ## Copyright
 
