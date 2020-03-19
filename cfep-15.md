@@ -5,7 +5,7 @@
 <tr><td> Created </td><td> Mar 9, 2020</td></tr>
 <tr><td> Updated </td><td> Mar 16, 2020</td></tr>
 <tr><td> Discussion </td><td> NA </td></tr>
-<tr><td> Implementation </td><td> https://github.com/conda-forge/conda-forge-pinning-feedstock/pull/491 </br> https://github.com/conda-forge/conda-forge.github.io/pull/999 </br> https://github.com/conda-forge/conda-forge-webservices/pull/345 </br> https://github.com/conda-forge/conda-forge.github.io/pull/1004 </td></tr>
+<tr><td> Implementation </td><td> https://github.com/conda-forge/conda-forge-pinning-feedstock/pull/491 </br> https://github.com/conda-forge/conda-forge.github.io/pull/999 </br> https://github.com/conda-forge/conda-forge-webservices/pull/345 </br> https://github.com/conda-forge/conda-forge.github.io/pull/1004 </br> https://github.com/conda-forge/admin-migrations/pull/17 </td></tr>
 </table>
 
 ## Abstract
