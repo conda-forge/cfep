@@ -1,6 +1,6 @@
 <table>
 <tr><td> Title </td><td> Deprecate Python 2.7 and vs2008 </td>
-<tr><td> Status </td><td> Proposed </td></tr>
+<tr><td> Status </td><td> Accepted </td></tr>
 <tr><td> Author(s) </td><td> Matthew R. Becker &lt;becker.mr@gmail.com&gt;</td></tr>
 <tr><td> Created </td><td> Mar 9, 2020</td></tr>
 <tr><td> Updated </td><td> Mar 16, 2020</td></tr>
