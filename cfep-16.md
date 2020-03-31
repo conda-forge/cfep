@@ -35,7 +35,7 @@ SPDX.org has all OSI approved licenses, FSF approved licenses and a few
 other commonly used licenses.
 
 SPDX also has a mechanism to use custom licenses using the
-LicenseRef-[0-9a-zA-Z\-.]* format.
+`LicenseRef-[0-9a-zA-Z\-.]*` format.
 
 For packages with multiple licenses, SPDX license expressions provide
 the conjunctions `AND` and `OR` to combine them.
