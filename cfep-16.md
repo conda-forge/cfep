@@ -11,10 +11,10 @@
 
 ## Abstract
 
-This document proposes that we enforce the use SPDX license expressions
+This document proposes that we enforce the use of SPDX license expressions
 in license field in package metadata and to hotfix the package metadata
-to add the license_family field automatically by parsing the license
-field.
+to add the license_family field when missing by automatically
+parsing the license field.
 
 
 ## Motivation
