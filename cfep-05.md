@@ -101,8 +101,8 @@ as `pip --pre`, which seems simpler and easier to use.
 Currently this level of functionality is not possible with conda while
 maintaining the stability of environment we currently provide.
 This CFEP proposes and initial step toward supporting dev/rc releases.
-As we explore this functinality more we can re-evaluate the user and maintainer
-expreience and how best to provide this functionality.
+As we explore this functionality more we can re-evaluate the user and maintainer
+experience and how to best provide this functionality.
 
 ## FAQ
 
