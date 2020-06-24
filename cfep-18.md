@@ -27,7 +27,7 @@ In addition, our tooling (conda/conda-build/the bots) is also geared towards mai
 
 ## Rationale
 
-The current stack used to manage and consume conda-forge is tuned to deal with static linkages between packages.
+The current stack used to manage and consume conda-forge is tuned to deal with dynamic linkage between packages.
 As long as the solver can find a solution, updating a package version is simply updating the package itself, all other packages can stay untouched in the installations as long as they are compatible with the new version.
 If we would use static instead of shared linkage, we would need to rebuild the packages depending on that library.
 
