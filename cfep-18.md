@@ -52,13 +52,6 @@ Depending on the operation system, the symbols are then only loaded once into me
 Build static archives (in separated packages) is still useful for some non-common workflows.
 These don't represent the majority of uses of our packages but can profit a lot from our using our existing infrastructure:
 
-* Building static binaries that can be shipped as a single executable to ease installation, e.g. `micromamba`
-* Building Python wheels for Windows: Wheels that include binary code link all their static libraries into their Python module and can profit from conda-forge having static builds available (note that this also requires the wheels or the user to separate supply the VC runtime conda-forge uses).
-
-* static binaries for linux that are shipped as a single file
-* windows python wheels
-
-
 ## Implementation
 
 To implement the CFEP, we would remove static libraries from existing packages in new builds.
@@ -68,11 +61,29 @@ They aren't is most cases not used / needed.
 If the static libraries are needed though, they should be added as a separate output with a `-static` suffix, see https://github.com/conda-forge/krb5-feedstock/pull/23/files .
 
 Packages that statically link a dependency need to take care that they include the license file of all dependencies that require it.
+For now, we will also don't do any automatic rebuilds for packages with static linkage.
+This means that packages using static linkage need to regularly rebuild to include the updated versions.
+Otherwise the end-user experience will be that the library wasn't updated at all in the stack.
+
+## Windows
+
+We are going to be less strict on Windows builds for static libraries, mainly as the support for builds on Windows is less mature for the majority of tools.
+There are a lot libraries that only work with static linkage as the upstreams didn't take care to define the correct `__dllexport/__dllimport` lines.
+If a build works fine with shared linkage, it should only providing those.
+If a build doesn't yet work with shared linkage on Windows, we shouldn't force the maintainer of the feedstock to write a huge patch to make the linkage work.
+There is already a lot of hassle and not that much community support for packaging things on Windows.
+
+One additional caveat on Windows is though that there are several types of static libraries.
+In addition to every shared library (`bin\<name>.dll`) there is always accompanying (static) import library (`lib\<name>.lib`).
+As the import libraries are required for the linker to work, they definitely need to be included in the default installation.
+Sometimes the static build of a library has the same name as the import library, sometimes it comes with a `_static` suffix, i.e. `lib\<name>_static.lib`.
+The suffix `.lib` is only used when you are working with the MSVC-based toolchain.
+If you use the MinGW-based toolchain, the import library has a `.dll.a` suffix (though import libraries are necessarily needed for MinGW) and the static archives have solely a `.a` suffix, omitting the `.dll` part.
 
 ## Reference
 
 Most distributions explicitly forbid the packaging of static libraries or require them to be in non-default / suffixed packages.
-The guide lines of [Debian](https://wiki.debian.org/StaticLinking) and [OpenSUSE](https://en.opensuse.org/openSUSE:Shared_library_packaging_policy) are the most informatives of them.
+The guidelines of [Debian](https://wiki.debian.org/StaticLinking) and [OpenSUSE](https://en.opensuse.org/openSUSE:Shared_library_packaging_policy) are the most informative of them.
 
 ## Copyright
 
