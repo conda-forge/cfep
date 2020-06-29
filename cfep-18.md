@@ -37,26 +37,26 @@ Users can simply update to the new version.
 
 Rebuilding packages with static linkage is more complicated as the symbols of the library are copied into every binary that uses the library.
 Thus there we would not only need to rebuild the packages that directly on the library but all the whole set of downstream packages that also have an indirect linkage as they also may contain copies of the symbols.
-As the symbols are copied, we would not even need to do these rebuilds for ABI / version changes but for every new build of the packaged library.
+As the symbols are copied, we would not only need to do these rebuilds for ABI / version changes but for every new build of the packaged library.
 
-As an additional complication, you also need to include the license of the library of the library in every package that includes symbols of a static library if the license of the library requires it.
+As an additional complication, you also need to include the license of the library in every package that includes symbols of a static library if the license of the library requires it.
 This means that executables that are statically linked also need to include the license headers of most of their libraries.
 
-Using dynamic linkage also has the benefit of a smaller disk usage even when the static archives are not installed.
-As we will have the symbols of a library copied into every binary that uses a library.
+Using dynamic linkage also has the benefit of a smaller disk usage even when the static archives are not installed, 
+as we will have the symbols of a library copied into every binary that uses a library.
 In the dynamic setting, the symbols would only exist once on disk, inside the shared object.
 
 Not only does dynamic linkage reduce the storage requirements on disk but it also reduces the memory usage when several processes use the same library.
 Depending on the operation system, the symbols are then only loaded once into memory and shared between the processes.
 
-Build static archives (in separated packages) is still useful for some non-common workflows.
-These don't represent the majority of uses of our packages but can profit a lot from our using our existing infrastructure:
+Building static archives (in separated packages) is still useful for some non-common workflows.
+These don't represent the majority of uses of our packages but can profit a lot from our using our existing infrastructure.
 
 ## Implementation
 
 To implement the CFEP, we would remove static libraries from existing packages in new builds.
-Quite often static libraries where included by default without the need for them or just because they are the default output.
-They aren't is most cases not used / needed.
+Quite often static libraries were included by default without the need for them or just because they are the default output.
+They are in most cases not used/needed.
 
 If the static libraries are needed though, they should be added as a separate output with a `-static` suffix, see https://github.com/conda-forge/krb5-feedstock/pull/23/files .
 
