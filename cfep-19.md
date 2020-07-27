@@ -43,7 +43,7 @@ This CFEP is a proposal to create pinning epochs in `conda-forge` in order to he
    epochs are allowed at any one time.
  - Each pinning epoch will come with a metapackage that has the pins as run constraints to help keep
    environments on a single set of pinnings. This packages will be called `conda-forge-release` with an appropriate
-   version number.
+   version number in the form of `<year>.<month>` (e.g., `2020.06`) that corresponds to the pinning file.
 
 ## Rationale
 
