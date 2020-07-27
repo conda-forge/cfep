@@ -124,4 +124,4 @@ two active pinning epochs to the extent that is possible.
 
 ## Copyright
 
-All CFEPs are explicitly [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/
+All CFEPs are explicitly [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/)
