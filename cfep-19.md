@@ -37,7 +37,7 @@ This CFEP is a proposal to create pinning epochs in `conda-forge` in order to he
    in the same way as the usual pinnings file, and given a descriptive name.
  - Core can at it discretion copy keys from the latest pinnings file to a PE epoch in order to eliminate
    unnecessary rebuilds. Examples of these keys could include forward compatible pins (i.e., corresponding
-   to constraints like `>=9`) and things like `docker_image`.
+   to constraints like `>=9`), things like `docker_image`, and big deprecations like a version of `python` or `numpy`.
  - If instructed via an opt-in setting in the `conda-forge.yml`, `conda-smithy` will generate builds of a
    given package against both the bleeding edge pinning file and the pinning epoch file(s). Migration YAML files
    will not be applied to the PE files when generating builds.
