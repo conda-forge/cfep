@@ -35,8 +35,9 @@ This CFEP is a proposal to create pinning epochs in `conda-forge` in order to he
    to (e.g., `2020.06` for a pinning file from June of 2020).
  - Any pinning epochs files will be duplicated in the pinnings repo, installed into the miniconda/miniforge
    in the same way as the usual pinnings file, and given a descriptive name.
- - Certain, forward compatible pins (i.e., corresponding to constraints like `>=9`) can be copied
-   from the newer pinning file into the pinning epoch in order to eliminate potential rebuilds.
+ - Core can at it discretion copy keys from the latest pinnings file to a PE epoch in order to eliminate
+   unnecessary rebuilds. Examples of these keys could include forward compatible pins (i.e., corresponding
+   to constraints like `>=9`) and things like `docker_image`.
  - If instructed via an opt-in setting in the `conda-forge.yml`, `conda-smithy` will generate builds of a
    given package against both the bleeding edge pinning file and the pinning epoch file(s). Migration YAML files
    will not be applied to the PE files when generating builds.
