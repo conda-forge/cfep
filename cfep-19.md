@@ -14,7 +14,7 @@
 `conda-forge` will support *pinning epochs* (PE) by having one or more additional pinning files
 that define PE versions. These pinning files will be used by `conda-smithy` to effectively
 backport the current versions of downstream packages to the older PE pins. This backporting will be
-done an on *opt-in* basis by setting an appropriate setting in the `conda-forge.yml` on the feedstock.
+done on an *opt-in* basis by setting an appropriate setting in the `conda-forge.yml` on the feedstock.
 When set, this setting will instruct `conda smithy` to render the feedstock with both the PE pinning file and
 the latest pins. PE metapackages will be made so that users can enforce a single global pinnings version on
 their environments.
