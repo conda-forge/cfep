@@ -31,6 +31,8 @@ This CFEP is a proposal to create pinning epochs in `conda-forge` in order to he
 
  - `conda-forge` will define a "pinning epoch" as the pinnings file from some past version of the
    global pinnings file.
+ - The version number of the pinning epoch will be `YYYY.MM` from the pinning file it corresponds
+   to (e.g., `2020.06` for a pinning file from June of 2020).
  - Any pinning epochs files will be duplicated in the pinnings repo, installed into the miniconda/miniforge
    in the same way as the usual pinnings file, and given a descriptive name.
  - If instructed via an opt-in setting in the `conda-forge.yml`, `conda-smithy` will generate builds of a
@@ -42,8 +44,8 @@ This CFEP is a proposal to create pinning epochs in `conda-forge` in order to he
  - The core dev team will aim to declare pinning epochs with a frequency of at most ~6 months. Only at most two pinning
    epochs are allowed at any one time.
  - Each pinning epoch will come with a metapackage that has the pins as run constraints to help keep
-   environments on a single set of pinnings. This packages will be called `conda-forge-release` with an appropriate
-   version number in the form of `<year>.<month>` (e.g., `2020.06`) that corresponds to the pinning file.
+   environments on a single set of pinnings. This packages will be called `conda-forge-release` with
+   the version of the pinning epoch.
 
 ## Rationale
 
