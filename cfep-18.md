@@ -1,10 +1,10 @@
 
 <table>
 <tr><td> Title </td><td> Packaging static libraries </td>
-<tr><td> Status </td><td> Draft </td></tr>
+<tr><td> Status </td><td> Accepted </td></tr>
 <tr><td> Author(s) </td><td> Uwe L. Korn &lt;cfep@uwekorn.com&gt;</td></tr>
 <tr><td> Created </td><td> Jun 24, 2020</td></tr>
-<tr><td> Updated </td><td> Jun 24, 2020</td></tr>
+<tr><td> Updated </td><td> Aug 20, 2020</td></tr>
 <tr><td> Discussion </td><td> NA </td></tr>
 <tr><td> Implementation </td><td> NA </td></tr>
 </table>
