@@ -92,7 +92,7 @@ NOTE: A rerender needs to happen for these changes to reflect in CI files.
 
 ## Exceptions
 
-Certain packages (for example [black](https://pypi.org/project/black/#history)) follows
+Certain packages (for example [black](https://pypi.org/project/black/#history)) follow
 a release cycle in which they have never had a non-beta/alpha release.  In these cases
 the conda packages for those do *not* need to be published to a prerelease label.
 
