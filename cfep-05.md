@@ -90,6 +90,15 @@ in `recipe/conda_build_config.yaml` in their respective feedstocks.
 
 NOTE: A rerender needs to happen for these changes to reflect in CI files.
 
+## Exceptions
+
+Certain packages (for example [black](https://pypi.org/project/black/#history)) follows
+a release cycle in which they have never had a non-beta/alpha release.  In these cases
+the conda packages for those do *not* need to be published to a prerelease label.
+
+Once a non-prerelease version of such a package is available and has been merged into the associated feedstock they lose this exception and have to publish prereleases to a prerelease label like other packages.
+
+
 ## Alternatives
 
 * Upload pre-release packages to a different anaconda.org user, perhaps
