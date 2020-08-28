@@ -97,7 +97,7 @@ a release cycle in which they have never had a non-beta/alpha release.  In these
 the conda packages for those do *not* need to be published to a prerelease label.
 
 Once a non-prerelease version of such a package is available and has been merged into
-the associated feedstock they lose this exception and should to publish *future* prereleases
+the associated feedstock, they lose this exception and should publish *future* prereleases
 to a prerelease label like other packages.
 
 ## Alternatives
