@@ -44,7 +44,7 @@ backwards compatibility issues.
 
 ## Specification
 
-Mark the pre-release package on anaconda.org as "dev" or "rc" by adding them to 
+Mark the pre-release package on anaconda.org as "dev" or "rc" by adding them to
 the appropriate label.
 The semantics of these labels should generally follow the
 [guidelines](https://docs.python.org/devguide/devcycle.html#stages) that Python
@@ -89,6 +89,16 @@ channel_targets:
 in `recipe/conda_build_config.yaml` in their respective feedstocks.
 
 NOTE: A rerender needs to happen for these changes to reflect in CI files.
+
+## Exceptions
+
+Certain packages (for example [black](https://pypi.org/project/black/#history)) follow
+a release cycle in which they have never had a non-beta/alpha release.  In these cases
+the conda packages for those do *not* need to be published to a prerelease label.
+
+Once a non-prerelease version of such a package is available and has been merged into
+the associated feedstock, they lose this exception and should publish *future* prereleases
+to a prerelease label like other packages.
 
 ## Alternatives
 
