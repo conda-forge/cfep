@@ -4,6 +4,7 @@
 <tr><td> Status </td><td> Proposed </td></tr>
 <tr><td> Author(s) </td><td> Sylvain Corlay &lt;sylvain.corlay@gmail.com&gt;</td></tr>
 <tr><td> Created </td><td> Oct 21, 2020</td></tr>
+<tr><td> Modified </td><td> Oct 22, 2020</td></tr>
 <tr><td> Discussion </td><td> NA </td></tr>
 <tr><td> Implementation </td><td> NA </td></tr>
 </table>
@@ -26,6 +27,12 @@ Notes:
 ## Motivation
 
 At the moment, there is not a common pattern to split packages in multiple output including C/C++ headers, JS source maps, or artifacts of build systems that are not required at runtime but are necessary at build time. Packages have been split in various ways, but adopting a convention will allow us to create tooling, idioms, and best practices on how to deal with such split packages.
+
+Expected benefits of this CFEP are
+
+ - An explicit convention on how to split packages. (There is an increasing number of packages split in various ways in conda-forge, but we lack idioms and patterns to apply).
+ - A finer-grained control over run exports of the different packages, most importantly for header-only and stacic libraries.
+ - A convention on how to package debug symbols (for libraries and executables) and JavaScript sourcemaps (for applications shipping a JavaScript bundle). Sourcemaps tend to weigh several megabytes and should not be included in the base package if possible.
 
 ## Output names and what goes where
 
