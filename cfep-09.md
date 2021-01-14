@@ -1,6 +1,6 @@
 
 <table>
-<tr><td> Pinning Proposal System for Automatic Rebuilds</td><td> Pinning Proposal </td>
+<tr><td> Title </td><td> Pinning Proposal System for Automatic Rebuilds </td>
 <tr><td> Status </td><td> Proposed </td></tr>
 <tr><td> Author(s) </td><td> Christopher J. "CJ" Wright &lt;cjwright4242@gmail.com&gt;; Matthew R. Becker &lt;becker.mr@gmail.com&gt;; Marius van Niekerk &lt;marius.v.niekerk@gmail.com&gt;</td></tr>
 <tr><td> Created </td><td> Feb 20, 2019</td></tr>
