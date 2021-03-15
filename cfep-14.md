@@ -1,6 +1,6 @@
 <table>
 <tr><td> Title </td><td> Security and Systems Subteam </td>
-<tr><td> Status </td><td> Draft </td></tr>
+<tr><td> Status </td><td> Accepted </td></tr>
 <tr><td> Author(s) </td><td> Matthew R. Becker &lt;becker.mr@gmail.com&gt;</td></tr>
 <tr><td> Created </td><td> Mar 7, 2020</td></tr>
 <tr><td> Updated </td><td> Mar 7, 2020</td></tr>
