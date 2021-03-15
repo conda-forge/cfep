@@ -1,7 +1,7 @@
 
 <table>
 <tr><td> Title </td><td> Setting license and license_family field </td>
-<tr><td> Status </td><td> Proposed </td></tr>
+<tr><td> Status </td><td> Accepted </td></tr>
 <tr><td> Author(s) </td><td> Isuru Fernando &lt;isuruf@gmail.com&gt;</td></tr>
 <tr><td> Created </td><td> March 28, 2020</td></tr>
 <tr><td> Updated </td><td> March 28, 2020</td></tr>
