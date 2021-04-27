@@ -4,7 +4,7 @@ changes will be needed to adapt how the project operates both from a
 technical standpoint as well as to address social topics such as governance and
 expected conduct.
 
-To address these changes in an open manner, all major changes to the project
+To address these changes in an open manner to the project, it
 should be submitted as conda-forge enhancement proposals (CFEP). These CFEPs
 are similar to [Python's PEP](https://www.python.org/dev/peps/) and
 [IPython's IPEP](https://github.com/ipython/ipython/wiki/IPEPs:-IPython-Enhancement-Proposals) processes.
