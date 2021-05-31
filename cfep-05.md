@@ -13,9 +13,10 @@
 
 There are a number of recipe maintainers who have asked for guidance regarding
 how to make pre-release builds available with the CI infrastructure on
-conda-forge. This document outlines how those builds should be labeled on
+conda-forge. On the other hand, some packages have Long Term Releases (LTR) branches
+This document outlines how those builds should be labeled on
 anaconda.org so that the more adventurous users can try out these pre-release
-packages.
+packages and more cautious users can easily use LTR packages.
 
 ## Motivation
 
@@ -44,9 +45,10 @@ backwards compatibility issues.
 
 ## Specification
 
-Mark the pre-release package on anaconda.org as "dev" or "rc" by adding them to
-the appropriate label.
-The semantics of these labels should generally follow the
+Mark the pre-release or long term release package on anaconda.org as "dev" or "rc"
+and "ltr" by adding them to the appropriate label.
+
+The semantics of pre-release labels should generally follow the
 [guidelines](https://docs.python.org/devguide/devcycle.html#stages) that Python
 itself follows.
 
@@ -61,9 +63,10 @@ itself follows.
 
 See the Appendix for dev and rc version order specifics.
 
-To create a `dev` or `rc` package a PR can be issued into the `dev` or `rc` branch of the
+To create a `dev`,`rc` or `ltr` package a PR can be issued into the respective `dev`,`rc` or `ltr` branch of the
 feedstock.
-This branch must change the `recipe/conda_build_config.yaml` to point to the `<package_name>_dev` or `<package_name>_rc` label.
+
+This branches must change the `recipe/conda_build_config.yaml` to point to the `<package_name>_<suffix>` label.
 
 For example, matplotlib rc releases would include:
 ```yaml
@@ -125,7 +128,7 @@ introduce many labels.  "dev" and "rc" seem like a nice compromise.
 * How do I use labels to install these pre-release packages?
 
 Use the following command, but replace `PACKAGE_NAME` with the package you want
-to install and replace `LABEL` with "rc" or "dev":
+to install and replace `LABEL` with "rc", "dev" or "ltr":
 
 ```
 conda install -c conda-forge/label/PACKAGE_NAME_LABEL -c conda-forge PACKAGE_NAME
