@@ -1,7 +1,7 @@
 
 <table>
 <tr><td> Title </td><td> Pinning Epochs </td>
-<tr><td> Status </td><td> Proposed </td></tr>
+<tr><td> Status </td><td> Deferred </td></tr>
 <tr><td> Author(s) </td><td> Matthew R. Becker &lt;becker.mr@gmail.com&gt;</td></tr>
 <tr><td> Created </td><td> Jul 26, 2020</td></tr>
 <tr><td> Updated </td><td> Jul 26, 2020</td></tr>
