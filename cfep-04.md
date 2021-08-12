@@ -1,6 +1,6 @@
 <table>
 <tr><td> Title </td><td> Policies for packaging X11-based software in conda-forge </td>
-<tr><td> Status </td><td> Draft </td></tr>
+<tr><td> Status </td><td> Deferred </td></tr>
 <tr><td> Author(s) </td><td> Peter K. G. Williams &lt;peter@newton.cx&gt; (@pkgw) </td></tr>
 <tr><td> Created </td><td> Feb 20, 2017 </td></tr>
 <tr><td> Updated </td><td> Feb 27, 2017 </td></tr>
