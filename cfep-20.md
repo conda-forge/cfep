@@ -1,7 +1,7 @@
 
 <table>
 <tr><td> Title </td><td> Standard package split (dev / doc / dbg) </td>
-<tr><td> Status </td><td> Proposed </td></tr>
+<tr><td> Status </td><td> Deferred </td></tr>
 <tr><td> Author(s) </td><td> Sylvain Corlay &lt;sylvain.corlay@gmail.com&gt;</td></tr>
 <tr><td> Created </td><td> Oct 21, 2020</td></tr>
 <tr><td> Modified </td><td> Oct 22, 2020</td></tr>
