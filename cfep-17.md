@@ -1,7 +1,7 @@
 
 <table>
 <tr><td> Title </td><td> Branches for Globally Pinned Packages </td>
-<tr><td> Status </td><td> Draft </td></tr>
+<tr><td> Status </td><td> Deferred </td></tr>
 <tr><td> Author(s) </td><td> Christopher J. "CJ" Wright &lt;cjwright4242@gmail.com&gt;</td></tr>
 <tr><td> Created </td><td> May 30, 2020</td></tr>
 <tr><td> Updated </td><td> May 30, 2020</td></tr>
