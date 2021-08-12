@@ -1,7 +1,7 @@
 
 <table>
 <tr><td> Title </td><td> Feedstock Statuses </td>
-<tr><td> Status </td><td> Proposed </td></tr>
+<tr><td> Status </td><td> Deferred </td></tr>
 <tr><td> Author(s) </td><td> Christopher J. "CJ" Wright &lt;cjwright4242@gmail.com&gt;</td></tr>
 <tr><td> Created </td><td> Sept 29, 2019</td></tr>
 <tr><td> Discussion </td><td> <a href="https://github.com/conda-forge/cfep/pull/15">cfep#15</a> </td></tr>
