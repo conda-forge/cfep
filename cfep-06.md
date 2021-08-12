@@ -1,7 +1,7 @@
 
 <table>
 <tr><td> cfep-06 </td><td> staged-recipes code review lifecycle </td>
-<tr><td> Status </td><td> **Draft** | Proposed | Accepted | Rejected | Deferred | Implemented </td></tr>
+<tr><td> Status </td><td> Deferred </td></tr>
 <tr><td> Author(s) </td><td> Eric Dill &lt;edill@anaconda.com&gt;</td></tr>
 <tr><td> Created </td><td> Jul 24, 2018</td></tr>
 <tr><td> Updated </td><td> Jul 24, 2018</td></tr>
