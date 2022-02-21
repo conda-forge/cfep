@@ -40,7 +40,7 @@ The protocol we propose is:
 anaconda copy --from-label cfep03 --to-label main --to-owner conda-forge DELEGATES_CHANNEL/PACKAGE_NAME/PACKAGE_VERSION
 ```
 
-- In both cases, the core member will need to install `anaconda-client` and login with your `anaconda.org` username.
+- In both cases, the core member will need to install `anaconda-client` and login with their `anaconda.org` username.
 
 - Note that manual uploads have the uploader username, serving as a marker for manual uploads and a tracker for asking questions regarding the build environment used.
 
