@@ -159,7 +159,7 @@ conda install -c conda-forge/label/matplotlib_rc -c conda-forge matplotlib
 ## Appendix
 
 If you wish to add numbers to your "dev" or "rc" you should follow the
-[guidelines](http://conda.pydata.org/docs/spec.html#build-version-spec) put
+[guidelines](https://docs.conda.io/projects/conda-build/en/latest/resources/package-spec.html#package-match-specifications) put
 forth by Continuum regarding version sorting in `conda`. Also see the [source
 code for conda
 4.2.13](https://github.com/conda/conda/blob/4.2.13/conda/version.py#L93-L119).
