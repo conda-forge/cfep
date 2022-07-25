@@ -5,7 +5,11 @@
 <tr><td> Author(s) </td><td> Daniel Ching &lt;full.name@gmail.com&gt;</td></tr>
 <tr><td> Created </td><td> Jul 22, 2022</td></tr>
 <tr><td> Updated </td><td> Jul 22, 2022</td></tr>
-<tr><td> Discussion </td><td> link to the PR where the CFEP is being discussed, NA is circulated initially </td></tr>
+<tr><td> Discussion </td><td>
+  https://github.com/conda-forge/conda-forge.github.io/issues/610
+  https://github.com/conda-forge/conda-forge.github.io/issues/157
+  https://github.com/conda-forge/conda-forge.github.io/issues/150
+</td></tr>
 <tr><td> Implementation </td><td> link to the PR for the implementation, NA if not availble </td></tr>
 </table>
 
