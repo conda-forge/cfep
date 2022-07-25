@@ -47,6 +47,14 @@ is included for dynamically linked libraries.
 "{{ name }}-license" matches the exisiting naming scheme for "{{ name }}-static"
 "{{ name }}-includes".
 
+## FAQ
+
+### How does this affect current builds of packages?
+
+It doesn't. The changes will slowly be implemented over time as packages and their
+downstream packages are rebuilt with regular releases. Migrations are a tool
+that could be used to if desired for certain packages.
+
 ## Copyright
 
 All CFEPs are explicitly [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/).
