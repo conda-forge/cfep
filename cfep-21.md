@@ -1,10 +1,10 @@
 
 <table>
 <tr><td> Title </td><td> Export license packages for static and header-only libraries </td>
-<tr><td> Status </td><td> Draft </td></tr>
+<tr><td> Status </td><td> Proposed </td></tr>
 <tr><td> Author(s) </td><td> Daniel Ching &lt;carterbox@users.noreply.github.com&gt;</td></tr>
 <tr><td> Created </td><td> Jul 9, 2022</td></tr>
-<tr><td> Updated </td><td> Jul 9, 2022</td></tr>
+<tr><td> Updated </td><td> Jul 25, 2022</td></tr>
 <tr><td> Discussion </td><td> NA </td></tr>
 <tr><td> Implementation </td><td> NA </td></tr>
 </table>
