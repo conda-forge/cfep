@@ -1,68 +1,161 @@
 
 <table>
 <tr><td> Title </td><td> ABI pinning via SONAME in build string </td>
-<tr><td> Status </td><td> Draft | Proposed | Accepted | Rejected | Deferred | Implemented </td></tr>
-<tr><td> Author(s) </td><td> Daniel Ching &lt;full.name@gmail.com&gt;</td></tr>
+<tr><td> Status </td><td> Draft </td></tr>
+<tr><td> Author(s) </td><td> Daniel Ching &lt;carterbox@no.reply.github.com&gt;</td></tr>
 <tr><td> Created </td><td> Jul 22, 2022</td></tr>
-<tr><td> Updated </td><td> Jul 22, 2022</td></tr>
+<tr><td> Updated </td><td> Jul 26, 2022</td></tr>
 <tr><td> Discussion </td><td>
   https://github.com/conda-forge/conda-forge.github.io/issues/610
   https://github.com/conda-forge/conda-forge.github.io/issues/157
   https://github.com/conda-forge/conda-forge.github.io/issues/150
 </td></tr>
-<tr><td> Implementation </td><td> link to the PR for the implementation, NA if not availble </td></tr>
+<tr><td> Implementation </td><td> NA </td></tr>
 </table>
 
 ## Abstract
 
-Conda lacks a built-in method of tracking ABI separately from API. This is fine for python, whose ABI/API are effectively the same, but for compiled libraries it is not.
-Trying to figure out what compatability guarantees that a project offers between API and ABI is annoying because you have to contact upstream maintainers and
-manually monitor for changes. However, projects which care about ABI stability already offer this information in the form of the SONAME which is the version of the
-ABI and is commonly added to the name of the shared library. This proposal is a standard procedure for adding the SONAME into the build string so that
-the conda solver can prevent ABI breaks automatically.
+Conda lacks a built-in method of tracking ABI separately from API. This is fine
+for python, whose ABI/API are effectively the same, but for compiled libraries
+it is not. Trying to figure out what ABI compatability guarantees that a
+project offers between API releases is annoying because you have to contact
+upstream maintainers and manually monitor for changes. However, projects which
+care about ABI stability already offer this information in the form of the
+SONAME which is the version of the ABI and is commonly added to the name of the
+shared library. This proposal is a standard procedure for adding the SONAME
+into the build string, so that the exisiting conda solver can choose a
+compatible ABI automatically.
 
 ## Motivation
 
-You have to ask upstream about compatability guarantees. 
-Many projects already track this information with the SONAME.
+Conda doesn't have a built in way for tracking ABI separately from API which
+causes hardship for recipe maintainers in an ecosystem where packages are
+required to link dynamically. In order to prevent ABI breaks from a future API
+release, maintainers need to know ahead of time at which API release, the ABI
+will change. This means either asking upstream package maintainers about
+compatability guarantees or exporting a pin to the minor version.
 
-https://github.com/conda-forge/libavif-feedstock/pull/1#issuecomment-986310764
-https://github.com/conda-forge/dav1d-feedstock/pull/1/files#r927851556
-https://github.com/conda-forge/libwebp-feedstock/blob/615b5309a76ac96409394aa100ec11bb1c7ea150/recipe/meta.yaml#L14
+One of the approaches is imperfect because maintainers could change their
+policy or not have a policy. The other is inflexible because always pinning to
+the minor API version may not be necessary. One approach may lead to broken
+packages, and the other causes extra downstream builds and may occasionally
+cause unsolvable environments.
 
+## Specification
 
-## Backward Compatability
+Recipes whose libraries include a separate ABI version should add the major ABI
+version to the build string between `v` and `so`. For example, `v2so` for
+version `2`. This substring in the build string should be used in the
+run_export to constrain the pinning to the same ABI major version in addition
+to cosntraints on the API version.
 
-This proposal does not break exisiting packages. It is a feature that only helps future package builds.
+Recipes whose libraries have an API version only should export a pin to the
+patch level (`x.x.x`) in order to prevent ABI breaks.
 
-## Alternatives
-
-In theory breaking ABI changes can be introduced without changing the API. Reordering struct elements for example,
-but project managers would in practice not also make a new API release for this change.
+Recipes whose package version is the same as the ABI version do not need to
+modify their build string.
 
 ## Sample Implementation
 
-Related: What do you think about putting the ABI major version in the build string? i.e.
-david=1.0.0=b6hsdfbiwd where the SO major version is 6. Then we could pin to the API and ABI separately.
+```yaml
+{% set name = "libavif" %}
+{% set build = 0 %}
+# NOTE: Humans must also update the library version in the tests section of this recipe
+{% set version = "0.10.1" %}
+# Look in the libavif top level CMakeLists.txt for the updated ABI version.
+# ABI is updated separately from API version.
+{% set so_version = "14.0.1" %}
+{% set so_major_version = so_version.split('.')[0] %}
 
-run_export:
-  - {{ pin_subpackage( name|lower ) }} b{{ so_name_major }}h*
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
 
-This would be templated out to
+build:
+  number: {{ build }}
+  string: "v{{ so_name_major }}soh{{ PKG_HASH }}_{{ build }}"
+  run_exports:
+    - {{ pin_subpackage(name|lower) }} *v{{ so_name_major }}so*
 
-run_exports:
-  - david >=1.0.0,<2 b6h*
+test:
+  commands:
+    - test -f ${PREFIX}/lib/libavif.so.{{ so_major_version }}     # [linux]
+    - test -f ${PREFIX}/lib/libavif.so.{{ so_version }}           # [linux]
 
-or maybe
+```
 
-run_exports:
-  - david >=1.0.0,<2
-  - david * b6h*
+## Rationale
 
-So then the run export handles both API and ABI. The ABI version is between "b" and "h" because if it was just b6*, then we could run into issues when we reach b60.
+Adding the ABI version to the build string allows the run_export to handle both
+API and ABI using existing conda capabilities. Not needing new conda features
+saves engineering effort and is implementable today. Build strings are already
+used to track features such as the CUDA version and MPI variants.
 
-The more C++ projects that I become the maintainer of, the more I run into the problem that conda doesn't have a built in way for tracking ABI separately from API (because conda's roots are in python where you don't worry about ABI).
+The ABI version is sandwiched between `v` and `so` because these letters are
+not part of hexadecimal and to prevent matching collisions with other build
+string tags or higher numbers. i.e. `6*` matches with `60`, but `6so*` does
+not.
 
+Using a combination of build string and run_exports to add ABI information
+requires no changes from downstream packages except using the latest build.
+They will be guarded from ABI breakages as soon as they rebuild with the
+updated package.
+
+## Backward Compatability
+
+This proposal does not break exisiting packages. It is a feature that only
+helps future package builds.
+
+
+## Alternatives
+
+### API Pinning Only
+
+In theory, breaking ABI changes can be introduced without changing the API
+(reordering struct elements for example). In practice, project managers would
+always make a new API release for this change, so ABI breaks can be avoided by
+pinning down to the patch version. This is the most conservative approach, but
+is the least flexible. Recipe maintainers can pin to minor API versions if the
+upstream package makes any such promises about not breaking the ABI.
+
+### Adding ABI name to package name
+
+This alternatives renames outputs to `{{ name|lower }}{{ so_major_version }}`.
+This is not backward compatible and would require migrating all downstream
+packages to the new output names.
+
+### Prepending ABI to package version
+
+This would mean versioning packages to `{{so_major_version}}.{{verison}}`. This
+approach may not be backward compatible with already published package versions
+if the ABI version is lower than the API version and would require migrating
+all downstream feedstocks.
+
+### Exporting a separate ABI package
+
+The conda-forge pybind11 package does this currently. An empty package called
+pybind11_abi tracks the ABI version and is used as a run_constraint and
+run_export. This approach is backward compatible, but requires additions to the
+recipe (additional outputs, run_constraints, and exports).
+
+### Modifying conda to automatically track ABI via SONAME
+
+This approach requires new software features on conda instead of relying on
+existing features.
+
+# Reference
+
+https://github.com/conda-forge/conda-forge.github.io/issues/610
+
+https://github.com/conda-forge/conda-forge.github.io/issues/157
+
+https://github.com/conda-forge/conda-forge.github.io/issues/150
+
+https://github.com/conda-forge/libavif-feedstock/pull/1#issuecomment-986310764
+
+https://github.com/conda-forge/dav1d-feedstock/pull/1/files#r927851556
+
+https://github.com/conda-forge/libwebp-feedstock/blob/615b5309a76ac96409394aa100ec11bb1c7ea150/recipe/meta.yaml#L14
 
 ## Other sections
 
