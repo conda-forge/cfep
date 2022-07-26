@@ -55,6 +55,11 @@ patch level (`x.x.x`) in order to prevent ABI breaks.
 Recipes whose package version is the same as the ABI version do not need to
 modify their build string.
 
+Recipes with multiple library artifacts whose ABIs are tracked separately
+should split these libraries into separate outputs of one recipe. A metapackage
+may be used for installation convenience, but the metapackge must also
+enumerate the run_exports for each subpackage.
+
 ## Sample Implementation
 
 ```yaml
