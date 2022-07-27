@@ -127,7 +127,9 @@ upstream package makes any such promises about not breaking the ABI.
 
 This alternatives renames outputs to `{{ name|lower }}{{ so_major_version }}`.
 This is not backward compatible and would require migrating all downstream
-packages to the new output names.
+packages to the new output names. However, it does enable installing multiple
+ABI versions simultaneously (if you don't mind refactoring to prevent
+clobbering).
 
 ### Prepending ABI to package version
 
