@@ -70,7 +70,7 @@ enumerate the run_exports for each subpackage.
 # Look in the libavif top level CMakeLists.txt for the updated ABI version.
 # ABI is updated separately from API version.
 {% set so_version = "14.0.1" %}
-{% set so_major_version = so_version.split('.')[0] %}
+{% set so_name_major = so_version.split('.')[0] %}
 
 package:
   name: {{ name|lower }}
@@ -84,8 +84,8 @@ build:
 
 test:
   commands:
-    - test -f ${PREFIX}/lib/libavif.so.{{ so_major_version }}     # [linux]
-    - test -f ${PREFIX}/lib/libavif.so.{{ so_version }}           # [linux]
+    - test -f ${PREFIX}/lib/libavif.so.{{ so_name_major }}  # [linux]
+    - test -f ${PREFIX}/lib/libavif.so.{{ so_version }}     # [linux]
 
 ```
 
@@ -123,17 +123,57 @@ pinning down to the patch version. This is the most conservative approach, but
 is the least flexible. Recipe maintainers can pin to minor API versions if the
 upstream package makes any such promises about not breaking the ABI.
 
-### Adding ABI name to package name
+### New output with ABI in package name
 
-This alternatives renames outputs to `{{ name|lower }}{{ so_major_version }}`.
-This is not backward compatible and would require migrating all downstream
-packages to the new output names. However, it does enable installing multiple
-ABI versions simultaneously (if you don't mind refactoring to prevent
-clobbering).
+Proposed in [this
+issue](https://github.com/conda-forge/conda-forge.github.io/issues/157), this
+alternative renames outputs to `{{ name|lower ~ so_name_major }}`. This method
+is currently utilized for
+[libgfortran](https://github.com/conda-forge/ctng-compilers-feedstock/blob/main/recipe/meta.yaml#L542)
+and is common in official linux distributions. It also enables installing
+multiple ABI versions of a library simultaneously (remember to refactor to
+prevent clobbering). The downside of this alternative is that it requires
+multiple recipe outputs which is more difficult to implement).
+
+```yaml
+{% set name = "libavif" %}
+{% set build = 0 %}
+# NOTE: Humans must also update the library version in the tests section of this recipe
+{% set version = "0.10.1" %}
+# Look in the libavif top level CMakeLists.txt for the updated ABI version.
+# ABI is updated separately from API version.
+{% set so_version = "14.0.1" %}
+{% set so_name_major = so_version.split('.')[0] %}
+
+package:
+  name: {{ name|lower ~ so_name_major }}
+  version: {{ version }}
+
+build:
+  number: {{ build }}
+  run_exports:
+    - {{ pin_subpackage(name|lower ~ so_name_major) }}
+
+test:
+  commands:
+    - test -f ${PREFIX}/lib/libavif.so.{{ so_name_major }}  # [linux]
+    - test -f ${PREFIX}/lib/libavif.so.{{ so_version }}     # [linux]
+
+outputs:
+  - {{ name|lower ~ so_name_major }}
+  # This metapackage allows recipes to continue using the unversioned name
+  - {{ name|lower }}
+    build:
+      run_exports:
+        - {{ pin_subpackage(name|lower ~ so_name_major) }}
+    requirements:
+      run:
+        - {{ name|lower ~ so_name_major }}
+```
 
 ### Prepending ABI to package version
 
-This would mean versioning packages to `{{so_major_version}}.{{version}}`. This
+This would mean versioning packages to `{{so_name_major}}.{{version}}`. This
 approach may not be backward compatible with already published package versions
 if the ABI version is lower than the API version and would require migrating
 all downstream feedstocks.
