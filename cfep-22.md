@@ -131,7 +131,7 @@ packages to the new output names.
 
 ### Prepending ABI to package version
 
-This would mean versioning packages to `{{so_major_version}}.{{verison}}`. This
+This would mean versioning packages to `{{so_major_version}}.{{version}}`. This
 approach may not be backward compatible with already published package versions
 if the ABI version is lower than the API version and would require migrating
 all downstream feedstocks.
