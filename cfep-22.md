@@ -133,7 +133,7 @@ is currently utilized for
 and is common in official linux distributions. It also enables installing
 multiple ABI versions of a library simultaneously (remember to refactor to
 prevent clobbering). The downside of this alternative is that it requires
-multiple recipe outputs which is more difficult to implement).
+multiple recipe outputs which is more difficult to implement.
 
 ```yaml
 {% set name = "libavif" %}
