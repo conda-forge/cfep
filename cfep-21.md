@@ -11,7 +11,7 @@
 
 ## Abstract
 
-This CFEP proposes that header-only and static libraries and should be required
+This CFEP proposes that header-only and static libraries should be required
 to run_export an empty package (containing their license) called "{{ name
 }}-license" in order to ensure/automate attribution and to satisfy the license
 requirements.
