@@ -127,13 +127,14 @@ upstream package makes any such promises about not breaking the ABI.
 
 Proposed in [this
 issue](https://github.com/conda-forge/conda-forge.github.io/issues/157), this
-alternative renames outputs to `{{ name|lower ~ so_name_major }}`. This method
-is currently utilized for
+alternative produces a new output for the shared library with the name `{{
+name|lower ~ so_name_major }}`. This method is currently utilized for
 [libgfortran](https://github.com/conda-forge/ctng-compilers-feedstock/blob/main/recipe/meta.yaml#L542)
-and is common in official linux distributions. It also enables installing
-multiple ABI versions of a library simultaneously (remember to refactor to
-prevent clobbering). The downside of this alternative is that it requires
-multiple recipe outputs which is more difficult to implement.
+and is common in official linux distributions. It enables installing multiple
+ABI versions of a library simultaneously, but this requires separating the
+headers/docs from the shared libraries to prevent clobbering when multiple ABIs
+are installed in the same environment. This kind of output separation is more
+difficult to implement.
 
 ```yaml
 {% set name = "libavif" %}
@@ -146,7 +147,7 @@ multiple recipe outputs which is more difficult to implement.
 {% set so_name_major = so_version.split('.')[0] %}
 
 package:
-  name: {{ name|lower ~ so_name_major }}
+  name: {{ name|lower }}-splitme
   version: {{ version }}
 
 build:
@@ -154,21 +155,39 @@ build:
   run_exports:
     - {{ pin_subpackage(name|lower ~ so_name_major) }}
 
-test:
-  commands:
-    - test -f ${PREFIX}/lib/libavif.so.{{ so_name_major }}  # [linux]
-    - test -f ${PREFIX}/lib/libavif.so.{{ so_version }}     # [linux]
+# build all outputs, but don't install in "splitme" recipe
 
 outputs:
-  - {{ name|lower ~ so_name_major }}
-  # This metapackage allows recipes to continue using the unversioned name
+  # The unversioned name output contains docs, bins, and headers according to
+  # the API version.
   - {{ name|lower }}
-    build:
-      run_exports:
-        - {{ pin_subpackage(name|lower ~ so_name_major) }}
-    requirements:
-      run:
-        - {{ name|lower ~ so_name_major }}
+
+  script: install-headers-docs-bins.sh
+
+  requirements:
+    run:
+      - {{ pin_subpackage(name|lower ~ so_name_major, exact=True) }}
+
+  test:
+    commands:
+      - test -f ${PREFIX}/include/libavif.h                     # [linux]
+    # The top-level package must not contain libraries to prevent clobbering
+      - ! test -f ${PREFIX}/lib/libavif.so.{{ so_name_major }}  # [linux]
+      - ! test -f ${PREFIX}/lib/libavif.so.{{ so_version }}     # [linux]
+      - ! test -f ${PREFIX}/lib/libavif.so                      # [linux]
+
+  # This ABI-named secondary output contains the shared libaries only
+  - {{ name|lower ~ so_name_major }}
+
+    script: install-libraries-only.sh
+
+    test:
+      commands:
+        - test -f ${PREFIX}/lib/libavif.so.{{ so_name_major }}  # [linux]
+        - test -f ${PREFIX}/lib/libavif.so.{{ so_version }}     # [linux]
+      # Versioned libraries only to prevent clobbering
+        - ! test -f ${PREFIX}/lib/libavif.so                    # [linux]
+        - ! test -f ${PREFIX}/include/libavif.h                 # [linux]
 ```
 
 ### Prepending ABI to package version
