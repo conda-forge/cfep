@@ -1,11 +1,11 @@
 
 <table>
 <tr><td> Title </td><td> Providing manually uploaded builds on the conda-forge anaconda channel</td>
-<tr><td> Status </td><td> Proposed </td></tr>
+<tr><td> Status </td><td> Accepted </td></tr>
 <tr><td> Author(s) </td><td> Hadrien Mary &lt;hadrien.mary@gmail.com&gt;</td></tr>
 <tr><td> Created </td><td> Sep 27, 2016</td></tr>
 <tr><td> Updated </td><td> Oct 17, 2019</td></tr>
-<tr><td> Updated </td><td> Feb 21, 2022 (hmaarrfk) </td></tr>
+<tr><td> Updated </td><td> Jan 6, 2023 (jakirkham) </td></tr>
 <tr><td> Discussion </td><td> NA </td></tr>
 <tr><td> Implementation </td><td> NA </td></tr>
 </table>
