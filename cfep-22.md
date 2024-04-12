@@ -34,6 +34,8 @@ The following rules would be applied to these feedstocks and this list:
 - The `conda-forge/core` team can, at its discretion, add or remove feedstocks to/from TB2C list, either through consensus
   or a 50% public vote if no consensus can be reached.
 - Anyone can petition the `conda-forge/core` team to add or remove a feedstock to/from the TB2C list through a 50% public vote.
+- A single vote to add a feedstock to the TB2C list can be used to both add the feedstock and any non-core, non-upstream maintainers
+  since both votes use the same threshold. In this case, the vote would be sensitive as opposed to public.
 
 ## Rationale
 
