@@ -1,6 +1,6 @@
 
 <table>
-<tr><td> Title </td><td> TB2C - To Big To Be Compromised </td>
+<tr><td> Title </td><td> TB2C - Too Big To Be Compromised </td>
 <tr><td> Status </td><td> Draft </td></tr>
 <tr><td> Author(s) </td><td> Matthew R. Becker &lt;becker.mr@gmail.com&gt;</td></tr>
 <tr><td> Created </td><td> April 12, 2024</td></tr>
