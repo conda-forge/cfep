@@ -27,7 +27,8 @@ The following rules would be applied to these feedstocks and this list:
   the feedstock or with a 50% sensitive vote of the full `conda-forge/core` team) would be allowed access to these feedstocks.
 - Any non-core maintainer can be removed from the feedstock by a 50% sensitive vote of the `conda-forge/core` team.
 - Code reviews are required for all PRs to these feedstocks.
-- No automerge by the autotick bot is allowed for these feedstocks. Automerge labels are allowed.
+- All automated merges must be initiated directly by a human (e.g., a maintainer adds a label). The `conda-forge` admin migrations
+  bot is exempt from this rule.
 - No uploads from outside of the CI (i.e., CFEP-03) are allowed.
 - The full dependency tree of all feedstocks shipping packages the feedstock in question uses in its build is
   also required to be in the TB2C list.
