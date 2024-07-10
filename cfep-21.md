@@ -2,7 +2,7 @@
 <table>
 <tr><td> Title </td><td> Conda Forge-Bioconda Transfer Policy </td>
 <tr><td> Status </td><td> Draft </td></tr>
-<tr><td> Author(s) </td><td> Mervin Fansler &lt;fanslerm@mskcc.org&gt;</td></tr>
+<tr><td> Author(s) </td><td> Mervin Fansler &lt;mervin.fansler@bric.ku.dk&gt;</td></tr>
 <tr><td> Created </td><td> 10 July 2024</td></tr>
 <tr><td> Updated </td><td> 10 July 2024</td></tr>
 <tr><td> Discussion </td><td> link to the PR where the CFEP is being discussed, NA is circulated initially </td></tr>
