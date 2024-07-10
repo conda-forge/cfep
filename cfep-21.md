@@ -13,21 +13,21 @@
 
 Bioconda (BC) and Conda Forge (CF) have occasionally transferred package recipes between them. The `strict` channel
 priority recommended to BC users and used when building packages on the BC channel poses an
-issue when transfers occur, especially in the CF -> BC direction. This proposal aims to 
+issue when transfers occur, especially in the CF-to-BC direction. This proposal aims to 
 define a policy for standard procedure when such transfers occur. Included in this is the introduction
-of a new label to be applied to all package builds that transfer CF -> BC.
+of a new label to be applied to all package builds that transfer CF-to-BC.
 
 ## Specification
 
-### Bioconda to Conda Forge Transfers
+### Bioconda to Conda Forge (BC-to-CF) Transfers
 
 1. Packages on Bioconda considered for transfer should be marked with a ["Move to Conda Forge" label](https://github.com/bioconda/bioconda-recipes/labels/Move%20to%20Conda-Forge) in the `bioconda-recipes` repository. This label can be applied either in an Issue or a Pull Request.
 2. A Pull Request should be create on Conda Forge's `staged-recipes` repository to add the
 3. Linter flags when adding a recipe already hosted by Bioconda. This will trigger a message to [the **conda-forge/bioconda-recipes** team](https://github.com/orgs/conda-forge/teams/bioconda-recipes).
 
-### Conda Forge to Bioconda Transfers
+### Conda Forge to Bioconda (CF-to-BC) Transfers
 
-1. An Issue should be created on CF feedstock with the title "Move to Bioconda".
+1. An Issue should be created on the CF feedstock with the title "Move to Bioconda". It 
 2. A Pull Request should be created on the `conda-forge/admin-requests` feedstock to label all previous builds of this feedstock with a `transferred-to-bioconda` label. It should also initiate a request from the Core team to archive the feedstock.
 3. 
 
