@@ -21,7 +21,7 @@ of a new label to be applied to all package builds that transfer CF-to-BC.
 
 ### Bioconda to conda-forge (BC-to-CF) Transfers
 
-1. Packages on BC considered for transfer should be marked with a ["Move to Conda Forge" label](https://github.com/bioconda/bioconda-recipes/labels/Move%20to%20Conda-Forge) in the `bioconda-recipes` repository. This label can be applied either in an Issue or a Pull Request.
+1. Packages on BC considered for transfer should be marked with a ["Move to conda-forge" label](https://github.com/bioconda/bioconda-recipes/labels/Move%20to%20Conda-Forge) in the `bioconda-recipes` repository. This label can be applied either in an Issue or a Pull Request.
 2. A Pull Request should be create on CF's `staged-recipes` repository to add the
 3. The linter will flag when adding a recipe already hosted by BC. This will trigger a message to [the **conda-forge/bioconda-recipes** team](https://github.com/orgs/conda-forge/teams/bioconda-recipes).
 4. Upon approval by a **conda-forge/bioconda-recipes** team member, the Pull Request can then be reviewed and merged.
