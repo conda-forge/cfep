@@ -32,7 +32,7 @@ of a new label to be applied to all package builds that transfer CF-to-BC.
 1. An Issue should be created on the CF feedstock with the title "Move to Bioconda". The **conda-forge/bioconda-recipes** team can also be pinged for their input.
 2. A Pull Request should be created on the `conda-forge/admin-requests` feedstock to label all previous builds of this feedstock with a `transferred-to-bioconda` label. It should also initiate a request from the Core team to archive the feedstock. The **conda-forge/bioconda-recipes** should be pinged to review.
 3. A Pull Request on BC's `bioconda-recipes` should be created to add the recipe there. A link to this Pull Request should be added to the above Issue and Pull Request.
-4. Once a link is provided and a **conda-forge/bioconda-recipes** member has reviewed the Pull Request on `conda-forge/admin-requests`, CF Core should proceed to review and merge.
+4. Once a link is provided and a **conda-forge/bioconda-recipes** member has reviewed the Pull Request on `conda-forge/admin-requests`, **conda-forge/core** should proceed to review and merge.
 5. The BC `bioconda-recipes` Pull Request can be merged after **conda-forge/bioconda-recipes** has approved the `conda-forge/admin-requests` Pull Request.
 
 ## Motivation
