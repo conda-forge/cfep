@@ -11,7 +11,7 @@
 
 ## Abstract
 
-Bioconda (BC) and Conda Forge (CF) have occasionally transferred package recipes between them. The `strict` channel
+Bioconda (BC) and conda-forge (CF) have occasionally transferred package recipes between them. The `strict` channel
 priority recommended to BC users and used when building packages on the BC channel poses an
 issue when transfers occur, especially in the CF-to-BC direction. This proposal aims to 
 define a policy for standard procedure when such transfers occur. Included in this is the introduction
