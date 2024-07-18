@@ -37,7 +37,7 @@ of a new label to be applied to all package builds that transfer CF-to-BC.
 
 ## Motivation
 
-BC package builds use a `strict` channel priority with the channels `conda-forge > bioconda > defaults`. This creates a situation that when a package transfers from CF to BC that the presence of builds with `main` label in `conda-forge` masks the solver from considering builds in lower priority channel. This CFEP proposes to resolve this by moving `conda-forge` builds off the `main` label and onto a dedicated labe. By using a dedicated label for this, we provide end-users with a means of re-enabling search of these older packages by explicitly specifying the label when solving.
+BC package builds use a `strict` channel priority with the channels `conda-forge > bioconda > defaults`. This creates a situation that when a package transfers from CF to BC that the presence of builds with `main` label in `conda-forge` masks the solver from considering builds in lower priority channel. This CFEP proposes to resolve this by moving `conda-forge` builds off the `main` label and onto a dedicated label. By using a dedicated label for this, we provide end-users with a means of re-enabling search of these older packages by explicitly specifying the label when solving.
 
 ## Other sections
 
