@@ -1,6 +1,6 @@
 
 <table>
-<tr><td> Title </td><td> Conda Forge-Bioconda Transfer Policy </td>
+<tr><td> Title </td><td> conda-forge / Bioconda Transfer Policy </td>
 <tr><td> Status </td><td> Draft </td></tr>
 <tr><td> Author(s) </td><td> Mervin Fansler &lt;mervin.fansler@bric.ku.dk&gt;</td></tr>
 <tr><td> Created </td><td> 10 July 2024</td></tr>
