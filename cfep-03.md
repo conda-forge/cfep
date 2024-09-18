@@ -6,6 +6,7 @@
 <tr><td> Created </td><td> Sep 27, 2016</td></tr>
 <tr><td> Updated </td><td> Oct 17, 2019</td></tr>
 <tr><td> Updated </td><td> Jan 6, 2023 (jakirkham) </td></tr>
+<tr><td> Updated </td><td> Sep 18, 2024 (traversaro) </td></tr>
 <tr><td> Discussion </td><td> NA </td></tr>
 <tr><td> Implementation </td><td> NA </td></tr>
 </table>
@@ -34,8 +35,8 @@ The protocol we propose is:
 - Core members can then review the logs and test packages.
 
 - To upload the packages to the conda-forge channel, core members are provided with two options:
-    1. Upload the package manually with the appropriate `anaconda upload` command.
-    2. Copy the package over from the delegate's channel. If the delegate has provided a unique tag, such as `cfep-03`, the following commands can be used to copy over the packages
+    1. Upload the package manually with the appropriate `anaconda upload` command. A possible command to upload a given package-x.y.z.conda file is `ANACONDA_API_TOKEN=<insert_your_anaconda_org_token> anaconda upload --label cfep03 package-x.y.z.conda`
+    2. Copy the package over from the delegate's channel. If the delegate has provided a unique tag, such as `cfep03`, the following commands can be used to copy over the packages
 ```bash
 anaconda copy --from-label cfep03 --to-label main --to-owner conda-forge DELEGATES_CHANNEL/PACKAGE_NAME/PACKAGE_VERSION
 ```
