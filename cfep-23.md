@@ -4,7 +4,7 @@
 <tr><td> Author(s) </td><td> Jaime Rodríguez-Guerra &lt;jaime.rogue@gmail.com&gt;</td></tr>
 <tr><td> Created </td><td> Sep 20, 2024</td></tr>
 <tr><td> Updated </td><td> Sep 20, 2024</td></tr>
-<tr><td> Discussion </td><td> NA </td></tr>
+<tr><td> Discussion </td><td> https://github.com/conda-forge/cfep/pull/54 </td></tr>
 <tr><td> Implementation </td><td> NA </td></tr>
 </table>
 
@@ -67,7 +67,7 @@ Since Zulip doesn't have end-to-end encryption, it is not the best place to disc
 
 ## Alternatives
 
-The community also suggested moving to Discord. However that was discarded given its closed-source nature, handling of the messages there exchanged, and the need of a Discord account. A broader scope discussion can be found at [`conda/communications#29](https://github.com/conda/communications/issues/29).
+The community also suggested moving to Discord. However that was discarded given its closed-source nature, handling of the messages there exchanged, and the need of a Discord account. A broader scope discussion can be found at [`conda/communications#29`](https://github.com/conda/communications/issues/29).
 
 ## Copyright
 
