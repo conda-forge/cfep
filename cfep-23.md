@@ -48,7 +48,7 @@ After accepting this proposal, we will implement the following decisions:
 
 - The Zulip instance published at `conda-forge.zulipchat.com` will be open to the public with world-readable permissions.
 - The General channel will be the replacement for the `conda-forge/conda-forge.github.io` chat room. This will be reflected in the conda-forge.org documentation, and reminded periodically in the Element room.
-- The conda-forge core team will move its private communications to the Zulip instance, and close the relevant Element rooms.
+- The conda-forge core team will move its private communications to the Zulip instance, and stop using the Element rooms. A last message will be published with the details on how to transition to the Zulip instance.
 - New channels will be created in the instance as considered necessary (e.g. infrastructure, compilers, etc).
 - Sensitive topics will NOT be discussed directly in the Zulip instance. Instead they will follow the protocol described below.
 
@@ -58,12 +58,11 @@ Three months after the approval of this CFEP, the core team will consider the mi
 
 Since Zulip doesn't have end-to-end encryption, it is not the best place to discuss sensitive matters. Instead, we propose the following protocol.
 
-1. A private channel will be created in the Zulip instance, with exclusive access to the core team.
-2. In that channel, core members can announce that a new sensitive topic needs to be discussed. A small description describing the situation without revealing sensitive details should be shared.
-3. A new private room will be created in Matrix and announced in the private topic. Interested core members can voluntarily join the room to participate or observe the conversation.
-4. When the issue has been addressed, a summary of the events and decisions taken will be captured in the secret vault. The notes document should contain the date, topic title, participants and any other necessary information.
-5. Once the summary has been safely stored, a short announcement should be posted to the Zulip topic informing about the publication of the relevant notes in the vault.
-6. After a short period has passed with no comments, the Element room will be deleted and the Zulip topic will be marked as solved.
+1. Core members will announce that a new sensitive topic needs to be discussed in the Zulip channel for `core`. A small description describing the situation without revealing sensitive details should be shared.
+2. A new private room will be created in Matrix and announced in the private topic. Interested core members can voluntarily join the room to participate or observe the conversation.
+3. When the issue has been addressed, a summary of the events and decisions taken will be captured in the secret vault. The notes document should contain the date, topic title, participants and any other necessary information.
+4. Once the summary has been safely stored, a short announcement should be posted to the Zulip topic informing about the publication of the relevant notes in the vault.
+5. After a short period has passed with no comments, the Element room will be deleted and the Zulip topic will be marked as solved.
 
 ## Alternatives
 
