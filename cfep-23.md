@@ -50,6 +50,7 @@ After accepting this proposal, we will implement the following decisions:
 - The General channel will be the replacement for the `conda-forge/conda-forge.github.io` chat room. This will be reflected in the conda-forge.org documentation, and reminded periodically in the Element room.
 - The conda-forge core team will move its private communications to the Zulip instance, and stop using the Element rooms. A last message will be published with the details on how to transition to the Zulip instance.
 - New channels will be created in the instance as considered necessary (e.g. infrastructure, compilers, etc).
+- The Zulip instance will be treated as a public message board. No private chat or private rooms for folks besides admins or owners will be enabled.
 - Sensitive topics will NOT be discussed directly in the Zulip instance. Instead they will follow the protocol described below.
 
 Three months after the approval of this CFEP, the core team will consider the migration finished and the public rooms will become private and archived. If the core team estimates that there's still sufficient activity, another three months will be granted, with periodic reminders of the new Zulip instance. After that period, no more extensions will take place.
