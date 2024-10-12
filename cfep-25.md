@@ -11,26 +11,26 @@
 
 ## Abstract
 
-This CFEP proposes a mechanism to globally pin a minimum Python version for `noarch: python` packages. It relies on a new value in the global pinnings file, `XYZ`, that specifies the current oldest supported version of Python. Packages that are `noarch: python` will be built and tested against this oldest version of Python, but allowed to run on any newer Python version. Maintainers can override these values and rules locally according to their package's requirements if needed. Through this mechanism, we will ensure that as Python versions are no longer supported, we stop building packages that can run on them, avoiding potential incompatibilities for older environments.
+This CFEP proposes a mechanism to globally pin a minimum Python version for `noarch: python` packages. It relies on a new value in the global pinnings file, `python_min`, that specifies the current oldest supported version of Python. Packages that are `noarch: python` will be built and tested against this oldest version of Python, but allowed to run on any newer Python version. Maintainers can override these values and rules locally according to their package's requirements if needed. Through this mechanism, we will ensure that as Python versions are no longer supported, we stop building packages that can run on them, avoiding potential incompatibilities for older environments.
 
 ## Specification
 
-A new value, `XYZ`, will be added to the global pinnings file in `conda-forge/conda-forge-pinning-feedstock`. Its value will be the `major.minor` version of the oldest supported Python version (e.g., `3.9`, `3.11`, etc.). Recipes that create `noarch: python` packages will use the following configuration in their build definitions (e.g., `meta.yaml`, `recipe.yaml`, etc.):
+A new value, `python_min`, will be added to the global pinnings file in `conda-forge/conda-forge-pinning-feedstock`. Its value will be the `major.minor` version of the oldest supported Python version (e.g., `3.9`, `3.11`, etc.). Recipes that create `noarch: python` packages will use the following configuration in their build definitions (e.g., `meta.yaml`, `recipe.yaml`, etc.):
 
 ```yaml
 host:
-  - python {{ XYZ }}
+  - python {{ python_min }}
 run:
-  - python >={{ XYZ }}
+  - python >={{ python_min }}
 
 # for recipe.yaml, the test section below is different
 # but equivalent constraints can be added
 test:
  requires:
-    - python ={{ XYZ }}
+    - python ={{ python_min }}
 ```
 
-Maintainers may override the minimum Python version `XYZ` or change the build configuration as needed to match the constraints of their specific package. However, we strongly recommend that maintainers always test their package against the oldest Python version for which it would install in order to ensure compatibility.
+Maintainers may override the minimum Python version `python_min` or change the build configuration as needed to match the constraints of their specific package. However, we strongly recommend that maintainers always test their package against the oldest Python version for which it would install in order to ensure compatibility.
 
 ## Rationale
 
@@ -39,6 +39,7 @@ The procedure above was discussed extensively in issue [`#2210`](https://github.
 - Using a global pinning value allows us to easily update the minimum Python version for all `noarch: python` packages at once, either through a migration or by simply changing the value and letting the ecosystem update over time.
 - While `noarch: python` packages may be incompatible with either newer or older Python versions, we judged that testing against the oldest Python version would catch more issues than the other way around.
 - The oldest supported Python version is specified as a `major.minor` version, meaning that packages built against, for example, Python `3.9.1` can be installed in environments with Python version that have lower patch versions (e.g., `3.9.0`). For `noarch: python` packages, we do not expect the patch version to matter since there are no breaking changes in Python syntax for patch version bumps.
+- The name `python_min` was chosen to match the convention taken for the minimum CUDA compiler version (i.e., `cuda_compiler_version_min` for the pin value `cuda_compiler_version`).
 
 ## Alternatives
 
