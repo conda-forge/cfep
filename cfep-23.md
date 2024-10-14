@@ -1,9 +1,9 @@
 <table>
 <tr><td> Title </td><td> Migration to the Zulip chat platform </td>
 <tr><td> Status </td><td> Draft </td></tr>
-<tr><td> Author(s) </td><td> Jaime Rodríguez-Guerra &lt;jaime.rogue@gmail.com&gt; Matthew R. Becker &lt;becker.mr@gmail.com&gt;</td></tr>
+<tr><td> Author(s) </td><td> Jaime Rodríguez-Guerra &lt;jaime.rogue@gmail.com&gt;, Matthew R. Becker &lt;becker.mr@gmail.com&gt;</td></tr>
 <tr><td> Created </td><td> Sep 20, 2024</td></tr>
-<tr><td> Updated </td><td> Sep 20, 2024</td></tr>
+<tr><td> Updated </td><td> Oct 14, 2024</td></tr>
 <tr><td> Discussion </td><td> https://github.com/conda-forge/cfep/pull/54 </td></tr>
 <tr><td> Implementation </td><td> NA </td></tr>
 </table>
@@ -14,8 +14,7 @@ The conda-forge core team is proposing to transition chat platforms from Element
 
 ## Background
 
-Initially, conda-forge offered support through the Gitter platform, which allowed one chat room
-per repository. `conda-forge/conda-forge.github.io` was chosen for this and many users have received support over the years in the corresponding room. As of September 2024, over 2000 users have joined the room. The conda-forge core team also used private rooms to communicate core issues. However, due to the lack of encryption in Gitter, a Keybase room was created to exchange information about sensitive topics.
+Initially, conda-forge offered support through the Gitter platform, which allowed one chat room per repository. `conda-forge/conda-forge.github.io` was chosen for this and many users have received support over the years in the corresponding room. As of September 2024, over 2000 users have joined the room. The conda-forge core team also used private rooms to communicate core issues. However, due to the lack of encryption in Gitter, a Keybase room was created to exchange information about sensitive topics.
 
 When Gitter was integrated in the Matrix protocol and migrated to the Element client, it gained encryption features. This meant that security sensitive items could be discussed in the regular private rooms. As a result, Keybase was abandoned and its contents migrated to a secure secret management vault.
 
@@ -50,7 +49,6 @@ After accepting this proposal, we will implement the following decisions:
 - The General channel will be the replacement for the `conda-forge/conda-forge.github.io` chat room. This will be reflected in the conda-forge.org documentation, and reminded periodically in the Element room.
 - The conda-forge core team will move its private communications to the Zulip instance, and stop using the Element rooms. A last message will be published in the Element core chat room with the details on how to transition to the Zulip instance. 
 - New channels will be created in the instance as considered necessary (e.g. infrastructure, compilers, etc).
-- The Zulip instance will be treated as a public message board. No private chat or private rooms for users besides admins, owners, or moderators will be enabled.
 - Sensitive topics will NOT be discussed directly in the Zulip instance. Instead they will follow the protocol described below.
 - Some Element rooms related to conda-forge (e.g., rooms where we interact with other communities like bioconda) will remain unchanged as needed. We will however strive to move as much of the conda-forge Element space to Zulip as possible.
 
