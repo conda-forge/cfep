@@ -19,7 +19,7 @@ A new value, `python_min`, will be added to the global pinnings file in `conda-f
 
 ```yaml
 host:
-  - python {{ python_min }}
+  - python {{ python_min }}.*
 run:
   - python >={{ python_min }}
 
