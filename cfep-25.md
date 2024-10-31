@@ -38,7 +38,7 @@ The procedure above was discussed extensively in issue [`#2210`](https://github.
 
 - Using a global pinning value allows us to easily update the minimum Python version for all `noarch: python` packages at once, either through a migration or by simply changing the value and letting the ecosystem update over time.
 - While `noarch: python` packages may be incompatible with either newer or older Python versions, we judged that testing against the oldest Python version would catch more issues than the other way around.
-- The oldest supported Python version is specified as a `major.minor` version, meaning that packages built against, for example, Python `3.9.1` can be installed in environments with Python version that have lower patch versions (e.g., `3.9.0`). For `noarch: python` packages, we do not expect the patch version to matter since there are no breaking changes in Python syntax for patch version bumps.
+- The oldest supported Python version is specified as a `major.minor` version, meaning that packages built against, for example, Python `3.9.1` can be installed in environments with Python version that have lower patch versions (e.g., `3.9.0`). For `noarch: python` packages, we do not expect the patch version to matter since there should be no breaking changes in Python syntax for patch version bumps.
 - The name `python_min` was chosen to match the convention taken for the minimum CUDA compiler version (i.e., `cuda_compiler_version_min` for the pin value `cuda_compiler_version`).
 
 ## Alternatives
