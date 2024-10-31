@@ -30,7 +30,9 @@ test:
     - python ={{ python_min }}
 ```
 
-Maintainers may override the minimum Python version `python_min` or change the build configuration as needed to match the constraints of their specific package. However, we strongly recommend that maintainers always test their package against the oldest Python version for which it would install in order to ensure compatibility.
+Maintainers may override the minimum Python version `python_min` in `recipe/conda_build_config.yaml` or change the build configuration as needed to match the constraints of their specific package.
+
+However, we strongly recommend that maintainers always test their package against the oldest Python version for which it would install in order to ensure compatibility.
 
 ## Rationale
 
