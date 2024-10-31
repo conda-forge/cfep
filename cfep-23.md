@@ -18,7 +18,7 @@ Initially, conda-forge offered support through the Gitter platform, which allowe
 
 When Gitter was integrated in the Matrix protocol and migrated to the Element client, it gained encryption features. This meant that security sensitive items could be discussed in the regular private rooms. As a result, Keybase was abandoned and its contents migrated to a secure secret management vault.
 
-The integration in the Element ecosystem was seen as exciting and positive: emoji reactions were available for the first time, and threads were shortly implemented too. However, over time the excitement faded away, which prompted the proposal discussed in this CFEP.
+The integration in the Element ecosystem was seen as exciting and positive: emoji reactions were available for the first time, and threads were shortly implemented too. However, over time usability issues hindered effective communication on Element (described below), which prompted the proposal discussed in this CFEP.
 
 ## Motivation
 
@@ -26,7 +26,7 @@ Element/Matrix offers a free to use real-time chat platform with web, desktop an
 
 However, it suffers from a few issues that limit its usability within our community. The main concerns are:
 
-- End-to-end encryption fails sometimes, leaving the users unable to read previous messages, or have their messaged read by others. Synchronization of keys across clients is necessary to fix it, but in some other cases the issue has dissapeared spontaneously.
+- End-to-end encryption fails sometimes, leaving the users unable to read previous messages, or have their messaged read by others. Synchronization of keys across clients is necessary to fix it, but in some other cases the issue has disappeared spontaneously.
 - Some messages are considered unread for months at a time, and there's no way to find them and mark them as read.
 - The thread system offers very limited ways of tracking conversations and making them discoverable. It's very difficult to follow on topics started hours ago, let alone days or weeks ago.
 - Scoped discussions require a lot of discipline from the users, since threads are optional, and the real-time chat is preferred in the UI.
