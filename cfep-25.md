@@ -11,9 +11,17 @@
 
 ## Abstract
 
-This CFEP proposes a mechanism to globally pin a minimum Python version for `noarch: python` packages. It relies on a new value in the global pinnings file, `python_min`, that specifies the current oldest supported version of Python. Packages that are `noarch: python` will be built and tested against this oldest version of Python, but allowed to run on any newer Python version. Maintainers can override these values and rules locally according to their package's requirements if needed. Through this mechanism, we will ensure that as Python versions are no longer supported, we stop building packages that can run on them, avoiding potential incompatibilities for older environments.
+This CFEP proposes a mechanism to globally pin a minimum Python version for `noarch: python` packages.
+
+## Background
+
+A frequent issue observed with `noarch: python` packages has been lower bounds that are not being updated when the upstream package drops support for a Python version. As a result, the `noarch: python` package continues to be built and installed for Python versions the package no longer officially supports. Sometimes users get lucky and no issues occur. Other times pulling in the package breaks an older Python install they are using. The result is work by users, maintainers, and core to fix the package metadata and patch the repodata. Eating into time that might be better spent by all on other issues.
+
+To minimize this form of breakage, this CFEP sets forward a new practice to ensure `noarch: python` packages **always** test their minimum supported version. This will hopefully identify issues with the minimum version in the feedstock CI instead of consumers environments. 
 
 ## Specification
+
+It relies on a new value in the global pinnings file, `python_min`, that specifies the current oldest supported version of Python. Packages that are `noarch: python` will be built and tested against this oldest version of Python, but allowed to run on any newer Python version. Maintainers can override these values and rules locally according to their package's requirements if needed. Through this mechanism, we will ensure that as Python versions are no longer supported, we stop building packages that can run on them, avoiding potential incompatibilities for older environments.
 
 A new value, `python_min`, will be added to the global pinnings file in `conda-forge/conda-forge-pinning-feedstock`. Its value will be the `major.minor` version of the oldest supported Python version (e.g., `3.9`, `3.11`, etc.). Recipes that create `noarch: python` packages will use the following configuration in their build definitions (e.g., `meta.yaml`, `recipe.yaml`, etc.):
 
