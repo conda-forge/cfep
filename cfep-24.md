@@ -1,12 +1,12 @@
 
 <table>
 <tr><td> Title </td><td> More Secure Package Name Approval Process </td>
-<tr><td> Status </td><td> Proposed </td></tr>
+<tr><td> Status </td><td> Accepted </td></tr>
 <tr><td> Author(s) </td><td> Matthew R. Becker &lt;becker.mr@gmail.com&gt;</td></tr>
 <tr><td> Created </td><td> Oct 12, 2024</td></tr>
-<tr><td> Updated </td><td> Oct 12, 2024</td></tr>
+<tr><td> Updated </td><td> Nov 3, 2024</td></tr>
 <tr><td> Discussion </td><td> #55 </td></tr>
-<tr><td> Implementation </td><td> NA </td></tr>
+<tr><td> Implementation </td><td> <a href="https://github.com/conda-forge/core-notes/issues/30">conda-forge/core-notes/issues/30</a> </td></tr>
 </table>
 
 ## Abstract
