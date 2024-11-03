@@ -6,7 +6,7 @@
 <tr><td> Created </td><td> Oct 12, 2024</td></tr>
 <tr><td> Updated </td><td> Nov 3, 2024</td></tr>
 <tr><td> Discussion </td><td> #56 </td></tr>
-<tr><td> Implementation </td><td> [conda-forge/conda-forge.github.io/issues/2351](https://github.com/conda-forge/conda-forge.github.io/issues/2351) </td></tr>
+<tr><td> Implementation </td><td> <a href="https://github.com/conda-forge/conda-forge.github.io/issues/2351">conda-forge/conda-forge.github.io/issues/2351</a> </td></tr>
 </table>
 
 ## Abstract
