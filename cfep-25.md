@@ -34,7 +34,7 @@ run:
 # for recipe.yaml, the test section below is different
 # but equivalent constraints can be added
 test:
- requires:
+  requires:
     - python ={{ python_min }}
 ```
 
