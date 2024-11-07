@@ -27,7 +27,7 @@ A new value, `python_min`, will be added to the global pinnings file in `conda-f
 
 ```yaml
 host:
-  - python {{ python_min }}.*
+  - python {{ python_min }}
 run:
   - python >={{ python_min }}
 
@@ -35,7 +35,7 @@ run:
 # but equivalent constraints can be added
 test:
   requires:
-    - python ={{ python_min }}
+    - python {{ python_min }}
 ```
 
 Maintainers may override the minimum Python version `python_min` in `recipe/conda_build_config.yaml` or change the build configuration as needed to match the constraints of their specific package.
