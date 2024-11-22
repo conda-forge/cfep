@@ -31,4 +31,6 @@ is given in CFEP-00.
 | [CFEP-15](cfep-15.md) | Deprecate Python 2.7 and vs2008                                        |
 | [CFEP-16](cfep-16.md) | Setting license and license_family field                               |
 | [CFEP-18](cfep-18.md) | Packaging static libraries                                             |
-
+| [CFEP-23](cfep-23.md) | Migration to the Zulip chat platform                                   |
+| [CFEP-24](cfep-24.md) | More Secure Package Name Approval Process                              |
+| [CFEP-25](cfep-25.md) | Globally Pinned Minimum Python Version for `noarch: python` Packages   |
