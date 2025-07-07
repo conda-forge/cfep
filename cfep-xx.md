@@ -33,7 +33,7 @@ Implementation: [rust-activation-feedstock#79](https://github.com/conda-forge/ru
 
 ### 2. Builds should use `$CARGO` instead of `cargo`
 
-Build scripts should be adapted to use `$CARGO` (or `%CARGO`) instead of calls to plain `cargo`.
+Build scripts should be adapted to use `$CARGO` (or `%CARGO%`) instead of calls to plain `cargo`.
 While we could replace these calls also with calls to `cargo auditable`, this should serve as a more long-term solution if we want to supply more options.
 
 The usage of the `CARGO` environment variable also ensures that Python build using `maturin` also pick up `cargo-auditable` automatically (see [maturin#495](https://github.com/PyO3/maturin/issues/2495)).
