@@ -21,6 +21,8 @@ Two cases are described depending on the status of the target name:
 
 ## Specification
 
+This CFEP follows [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119) in its use of certain keywords (e.g., MUST).
+
 ### Feedstock Epochs
 
 In order to track how feedstocks are reused, we define the concept of the `feedstock epoch` and a `feedstock epoch label`.
