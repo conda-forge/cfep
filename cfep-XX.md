@@ -52,7 +52,7 @@ The blanket policy in this case is that an existing package name may not be used
 - The version ranges of the projects do not intersect.
 - The repodata patches for the old project (if any) do not change the repodata of the new project. Adjustments to the patches for the old project can be made, but they MUST produce the same modifications to the old artifacts.
 - The old project's artifacts are all marked with the `broken` label. 
-- The original feedstock for the old project MUST NOT be reused, and MUST be archived.
+- The original feedstock for the old project is not reused, and instead MUST be archived.
 
 The core team may resolve any ambiguities or disagreements on feedstock reuse at their sole discretion. Further, the core team reserves the right to refuse to allow a feedstock to be reused at their sole discretion.
 
