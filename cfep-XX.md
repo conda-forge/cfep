@@ -49,7 +49,6 @@ The blanket policy in this case is that an existing package name may not be used
 
 - The old project is abandoned. Factors that can help to indicate if a project is abandoned include, but are not limited to, the project's git repo being archived, the project's distributions no longer being available (e.g., yanked artifacts on PyPI), etc. For packages shipped on both conda-forge and PyPI, the package name on PyPI MUST have been inheritied by the new project from the old project.
 - The two different projects can be unambiguously distinguished in the conda-forge repodata, in the sense of incompatible constraints for the package metadata (e.g., the old `foo` might only have builds that require `python <=2.7`, whereas the new `foo` would only have builds for `python >=3.10`, the version ranges do not intersect, etc.).
-- The version ranges of the projects do not intersect.
 - The repodata patches for the old project (if any) do not change the repodata of the new project. Adjustments to the patches for the old project can be made, but they MUST produce the same modifications to the old artifacts.
 - The old project's artifacts are all marked with the `broken` label. 
 - The original feedstock for the old project is not reused, and instead MUST be archived.
