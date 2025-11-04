@@ -29,7 +29,7 @@ This CFEP follows [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119) in i
 
 - Unclaimed package names are typically available on a first-come-first-served basis and can be claimed by submitting a recipe for a package via `staged-recipes` (or equivalent).
 - The core team reserves the right to prevent the use of certain names for any reason. Typical reasons the core team may prevent the use of a certain name include, but are not limited to, typo squatting, ambiguity, violations of the code of conduct, conflicts with important infrastructure, etc.
-- Pre-registering or squatting on a namespace in anticipation of future use is not allowed unless expressly approved by the core team via the consent of at least three core members, and no dissent (in case of dissent, this can be solved by a vote within the core team). The core team MUST be `@`-mentioned on the relevant PR/issue and this PR/issue MUST stay open for at least one week.
+- Pre-registering or squatting on a namespace in anticipation of future use is not allowed unless expressly approved by the core team via the consent of at least three core members, and no dissent (in case of dissent, this can be solved by a vote within the core team). The core team MUST be `@`-mentioned on the relevant PR/issue and this PR/issue MUST stay open for at least one week. For the duration of this process (from the time core gets pinged until an answer is given), no other packages can use the names in question.
 
 #### Renaming an Existing Package
 
