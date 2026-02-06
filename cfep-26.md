@@ -1,12 +1,12 @@
 
 <table>
 <tr><td> Title </td><td> Guidelines for (Re)Naming Packages </td>
-<tr><td> Status </td><td> Draft </td></tr>
+<tr><td> Status </td><td> Accepted </td></tr>
 <tr><td> Author(s) </td><td>
     Jaime Rodríguez-Guerra &lt;jaime.rogue@gmail.com&gt;, Matthew R. Becker &lt;becker.mr@gmail.com&gt;, Axel Obermeier &lt;h.vetinari@gmx.com&gt;
 </td></tr>
 <tr><td> Created </td><td> Oct 26, 2025 </td></tr>
-<tr><td> Updated </td><td> Oct 26, 2025 </td></tr>
+<tr><td> Updated </td><td> Feb, 6, 2026 </td></tr>
 <tr><td> Discussion </td><td> https://github.com/conda-forge/admin-requests/pull/1711 </td></tr>
 <tr><td> Implementation </td><td> NA </td></tr>
 </table>
