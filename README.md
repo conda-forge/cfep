@@ -34,3 +34,4 @@ is given in CFEP-00.
 | [CFEP-23](cfep-23.md) | Migration to the Zulip chat platform                                   |
 | [CFEP-24](cfep-24.md) | More Secure Package Name Approval Process                              |
 | [CFEP-25](cfep-25.md) | Globally Pinned Minimum Python Version for `noarch: python` Packages   |
+| [CFEP-26](cfep-26.md) | Guidelines for (Re)Naming Packages                                     |
