@@ -51,10 +51,10 @@ and `site-packages` (pip installed python packages).
 ### conda support
 
 conda clients are only concerned with the location of the `scripts` and
-`purelib`/`platlib` components. The former needs to be added to `PATH`,
-and the latter needs to be part of Python's `sys.path`. The others
-(`stdlib/platstdlib`, `platlibdir` and`include/platinclude`) can be
-changed without breaking anything.
+`purelib`/`platlib` components. The former needs to be added to `PATH`
+and both are needed for placing files in the correct layout for
+`noarch: python` pacakges. The others (`stdlib/platstdlib`, `platlibdir`
+and `include/platinclude`) can be changed without breaking anything.
 
 1. purelib/platlib
 
