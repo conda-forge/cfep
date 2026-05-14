@@ -21,7 +21,7 @@ python releases.
 Currently, the package layout for all conda packages
 are dictated by the python package. All C/C++ libraries, header
 files end up in <CONDA_PREFIX>/Library because <CONDA_PREFIX> is
-reserved for python because of its pecularities on windows.
+reserved for python due to its peculiarities on windows.
 This CFEP proposes changing this so that other libraries can use
 <CONDA_PREFIX>/lib, <CONDA_PREFIX>/include if they choose to.
 
@@ -39,7 +39,7 @@ This CFEP proposes changing this so that other libraries can use
 
 ### python package support
 
-We propse implementing this CFEP for python 3.15 and up.
+We propose implementing this CFEP for CPython 3.15 and up.
 This can be implemented by adding a `nt_conda` install scheme to [sysconfig](
 https://github.com/python/cpython/blob/v3.15.0b1/Lib/sysconfig/__init__.py#L28-L60)
 and then making it the default.
@@ -50,9 +50,11 @@ and `site-packages` (pip installed python packages).
 
 ### conda support
 
-conda does not care where `stdlib/platstdlib`, `platlibdir` and
-`include/platinclude` are in the directory structure. conda does care about
-the other two components.
+conda clients are only concerned with the location of the `scripts` and
+`purelib`/`platlib` components. The former needs to be added to `PATH`,
+and the latter needs to be part of Python's `sys.path`. The others
+(`stdlib/platstdlib`, `platlibdir` and`include/platinclude`) can be
+changed without breaking anything.
 
 1. purelib/platlib
 
@@ -77,7 +79,7 @@ the other two components.
 
 2. scripts
 
-   No change because of conda limitation. See the previous section
+   No change because of conda limitation. See the previous section.
 
 3. stdlib/platstdlib
 
@@ -90,7 +92,7 @@ the other two components.
 5. platlibdir
 
    These are internal places where `.pyd` and `py.ico` are installed and is
-   internal to cpython package. The dir `DLLs` does not interfere with any
+   internal to cpython package. The directory `DLLs` does not interfere with any
    other package, so we propose to defer the decision to conda-forge/python
    maintainers.
 
