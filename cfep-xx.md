@@ -31,10 +31,10 @@ This CFEP proposes changing this so that other libraries can use
 
 | Component            | Current           | Proposed                 | Unix reference                 | 
 | -------------------- | ----------------- | ------------------------ | ------------------------------ |
-| purelib/platlib      | Lib/site-packages | lib/python/site-packages | lib/python3.14t/site-packages  |
+| purelib/platlib      | Lib/site-packages | lib/python/site-packages | lib/python3.15t/site-packages  |
 | scripts              | Scripts           | Scripts                  | bin                            |
-| stdlib/platstdlib    | Lib               | lib/python               | lib/python3.14t                |
-| include/platinclude  | include           | include/python           | include/python3.14t            |
+| stdlib/platstdlib    | Lib               | lib/python               | lib/python3.15t                |
+| include/platinclude  | include           | include/python           | include/python3.15t            |
 | platlibdir           | DLLs              | DLLs                     | lib (not used)                 |
 
 ## Implementation
