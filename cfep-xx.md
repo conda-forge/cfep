@@ -22,6 +22,8 @@ Currently, the package layout for all conda packages
 are dictated by the python package. All C/C++ libraries, header
 files end up in <CONDA_PREFIX>/Library because <CONDA_PREFIX> is
 reserved for python due to its peculiarities on windows.
+See [CEP 0034](https://github.com/conda/ceps/blob/main/cep-0034.md#windows)
+for more details on the file system.
 This CFEP proposes changing this so that other libraries can use
 <CONDA_PREFIX>/lib, <CONDA_PREFIX>/include if they choose to.
 
