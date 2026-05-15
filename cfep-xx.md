@@ -1,7 +1,7 @@
 <table>
 <tr><td> Title </td><td> A more unixy layout for cpython on windows </td>
 <tr><td> Status </td><td> Proposed </td></tr>
-<tr><td> Author(s) </td><td> Isuru Fernando &lt;ifernando@openteams.comgt;</td></tr>
+<tr><td> Author(s) </td><td> Isuru Fernando &lt;ifernando@openteams.com&gt;</td></tr>
 <tr><td> Created </td><td> May 14, 2026</td></tr>
 <tr><td> Updated </td><td> May 14, 2026</td></tr>
 <tr><td> Discussion </td><td> https://github.com/conda-forge/python-feedstock/issues/860 </td></tr>
@@ -53,7 +53,7 @@ and `site-packages` (pip installed python packages).
 conda clients are only concerned with the location of the `scripts` and
 `purelib`/`platlib` components. The former needs to be added to `PATH`
 and both are needed for placing files in the correct layout for
-`noarch: python` pacakges. The others (`stdlib/platstdlib`, `platlibdir`
+`noarch: python` packages. The others (`stdlib/platstdlib`, `platlibdir`
 and `include/platinclude`) can be changed without breaking anything.
 
 1. purelib/platlib
