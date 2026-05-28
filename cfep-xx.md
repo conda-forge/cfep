@@ -35,7 +35,9 @@ This CFEP proposes changing this so that other libraries can use
 | scripts              | Scripts           | Scripts                  | bin                            |
 | stdlib/platstdlib    | Lib               | lib/python               | lib/python3.15t                |
 | include/platinclude  | include           | include/python           | include/python3.15t            |
-| platlibdir           | DLLs              | DLLs                     | lib (not used)                 |
+| dynload              | DLLs              | lib/python/lib-dynload   | lib/python3.15t/lib-dynload    |
+| import libraries     | lib               | lib                      | lib                            |
+| sys.executable       | python.exe        | python.exe               | bin/python                     |
 
 ## Implementation
 
@@ -91,12 +93,11 @@ and `include/platinclude`) can be changed without breaking anything.
 
    Same rationale as purelib/platlib
 
-5. platlibdir
+5. dynload
 
    These are internal places where `.pyd` and `py.ico` are installed and is
    internal to cpython package. The directory `DLLs` does not interfere with any
-   other package, so we propose to defer the decision to conda-forge/python
-   maintainers.
+   other package, so we propose use the same directory as unix.
 
 ## Copyright
 
