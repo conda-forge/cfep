@@ -1,11 +1,11 @@
 <table>
 <tr><td> Title </td><td> A more unixy layout for cpython on windows </td>
-<tr><td> Status </td><td> Proposed </td></tr>
+<tr><td> Status </td><td> Accepted </td></tr>
 <tr><td> Author(s) </td><td> Isuru Fernando &lt;ifernando@openteams.com&gt;</td></tr>
 <tr><td> Created </td><td> May 14, 2026</td></tr>
-<tr><td> Updated </td><td> May 14, 2026</td></tr>
+<tr><td> Updated </td><td> June 18, 2026</td></tr>
 <tr><td> Discussion </td><td> https://github.com/conda-forge/python-feedstock/issues/860 </td></tr>
-<tr><td> Implementation </td><td> NA </td></tr>
+<tr><td> Implementation </td><td> https://github.com/conda-forge/python-feedstock/pull/873 </td></tr>
 </table>
 
 ## Abstract
