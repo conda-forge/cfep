@@ -36,7 +36,7 @@ This CFEP proposes changing this so that other libraries can use
 | stdlib/platstdlib    | Lib               | lib/python               | lib/python3.15t                |
 | include/platinclude  | include           | include/python           | include/python3.15t            |
 | dynload              | DLLs              | lib/python/lib-dynload   | lib/python3.15t/lib-dynload    |
-| import libraries     | lib               | lib                      | lib                            |
+| import libraries     | libs              | libs                     | lib                            |
 | sys.executable       | python.exe        | python.exe               | bin/python                     |
 
 ## Implementation
@@ -98,6 +98,15 @@ and `include/platinclude`) can be changed without breaking anything.
    These are internal places where `.pyd` and `py.ico` are installed and is
    internal to cpython package. The directory `DLLs` does not interfere with any
    other package, so we propose use the same directory as unix.
+
+6. libs
+
+   This directory is where `python315.lib` etc lives and is needed for linking
+   the shared library for extensions in windows. We keep the `libs` directory
+   unchanged since there's no way for build systems like meson to query this
+   information. This is an oversight of [PEP 0739](https://peps.python.org/pep-0739).
+   Previous version of this CFEP, used `lib` for the import library and was changed
+   later to keep `libs`.
 
 ## Copyright
 
